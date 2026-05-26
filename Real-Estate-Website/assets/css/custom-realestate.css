@@ -1,0 +1,384 @@
+/* =========================================================
+   NESTORA REALTY — CUSTOM OVERRIDES v2
+   ========================================================= */
+
+:root {
+  --p:  #0f766e;       /* teal primary */
+  --pd: #0b5e57;       /* dark teal */
+  --dark: #0b1f1d;
+  --accent: #f4a261;
+  --light: #f6fbfa;
+  --text: #21302e;
+  --muted: #617570;
+  --line: rgba(15,118,110,.12);
+  --card-shadow: 0 4px 24px rgba(15,118,110,.10);
+  --card-hover-shadow: 0 16px 48px rgba(15,118,110,.18);
+  --radius: 14px;
+  --trans: .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── RESET / BASE ───────────────────────────────────────── */
+body { font-family:'Exo',sans-serif; background:#fff; color:var(--text); overflow-x:hidden; }
+.preloader { display:none !important; }
+
+/* ── NAVBAR ─────────────────────────────────────────────── */
+/* Remove the sticky-wrapper behaviour – navbar is now always fixed */
+.sticky-wrapper { position:fixed !important; top:0; left:0; right:0; z-index:1000; width:100% !important; height:auto !important; }
+
+.site-navbar {
+  padding: 0;
+  transition: background var(--trans), box-shadow var(--trans), padding var(--trans);
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* Scrolled state – applied by JS */
+.site-navbar.scrolled {
+  background: rgba(11,31,29,.96) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 4px 32px rgba(0,0,0,.22);
+  border-bottom-color: transparent;
+}
+
+.site-navbar .container { padding-top:.9rem; padding-bottom:.9rem; }
+
+/* Logo */
+.nestora-logo a { font-weight:900; font-size:26px; letter-spacing:-1px; text-decoration:none; color:#fff; transition:color var(--trans); }
+.nestora-logo span { color: var(--accent); }
+
+/* Nav links – always white (readable over hero + dark scrolled bg) */
+.site-navbar .site-navigation .site-menu > li > a {
+  color: rgba(255,255,255,.85) !important;
+  font-weight:600;
+  font-size:14px;
+  text-transform:capitalize;
+  padding: .5rem 1rem;
+  transition: color var(--trans);
+}
+.site-navbar .site-navigation .site-menu > li > a:hover,
+.site-navbar .site-navigation .site-menu > li.active > a { color:#fff !important; }
+
+/* Mobile hamburger icon */
+.site-menu-toggle .icon-menu { color:#fff; font-size:26px; }
+
+
+/* ── HERO ────────────────────────────────────────────────── */
+.home_bg {
+  position:relative;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  background-attachment: fixed;
+}
+.home-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(7,30,27,.82) 0%, rgba(15,118,110,.4) 100%);
+}
+.hero-text { position:relative; z-index:1; padding-top:80px; }
+.hero-text h2 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height:1.05;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:-.02em;
+  animation: heroFadeUp .9s .1s both;
+}
+.hero-text p {
+  max-width:660px; margin:22px auto;
+  color:rgba(255,255,255,.8); font-size:1.1rem; line-height:1.7;
+  animation: heroFadeUp .9s .3s both;
+}
+.home_btn { animation: heroFadeUp .9s .5s both; }
+.app-btn, .btn-serach-bg {
+  background:var(--p) !important;
+  border:0 !important; color:#fff !important;
+  border-radius:6px !important;
+  font-weight:700; letter-spacing:.4px;
+  padding:.8rem 1.8rem;
+  transition: transform var(--trans), box-shadow var(--trans), background var(--trans);
+  box-shadow: 0 8px 24px rgba(15,118,110,.3);
+  display:inline-block;
+}
+.app-btn:hover { transform:translateY(-2px); box-shadow:0 14px 32px rgba(15,118,110,.4); background:var(--pd) !important; }
+.home_btn_color_two { background:var(--accent) !important; color:#111 !important; box-shadow:0 8px 24px rgba(244,162,97,.3) !important; }
+.home_btn_color_two:hover { transform:translateY(-2px); box-shadow:0 14px 32px rgba(244,162,97,.45) !important; }
+
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+
+
+/* ── SEARCH BAR ─────────────────────────────────────────── */
+.search_bar {
+  background: linear-gradient(180deg, #f0f8f7 0%, #fff 100%);
+  position:relative; margin-top:0;
+  border-top:3px solid var(--p);
+}
+.search-title { margin-bottom:30px; }
+.single_search select, .single_search input {
+  height:52px; width:100%;
+  border:1.5px solid #d7e6e3; border-radius:8px;
+  background:#fff; color:#46615d;
+  padding:0 16px; font-weight:500;
+  transition: border-color var(--trans), box-shadow var(--trans);
+  font-family:'Exo',sans-serif;
+}
+.single_search select:focus, .single_search input:focus {
+  border-color:var(--p); outline:none;
+  box-shadow:0 0 0 3px rgba(15,118,110,.12);
+}
+.single_search { margin-bottom:20px; }
+.search_btn button { height:52px; width:100%; border-radius:8px; }
+.section-title h2 { color:var(--dark); font-weight:800; text-transform:capitalize; }
+.section-title div { background:var(--p) !important; }
+.section-subtitle { margin-top:15px; color:#60716e; }
+
+
+/* ── SECTION / LISTING HEADINGS ─────────────────────────── */
+.template_property { background:#fff; }
+
+.listing-group { margin-top:48px; }
+.listing-heading { margin-bottom:40px; }
+.listing-heading span {
+  color:var(--p); font-weight:700;
+  text-transform:uppercase; letter-spacing:3px; font-size:12px;
+}
+.listing-heading h3 {
+  margin:10px 0 12px; color:var(--dark);
+  font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900;
+}
+.listing-heading p { max-width:680px; margin:0 auto; color:var(--muted); line-height:1.7; }
+.rent-listings { padding-top:48px; border-top:1px solid var(--line); }
+
+
+/* ════════════════════════════════════════════════════════
+   PROPERTY CARDS  —  redesigned "floating glass" style
+   ════════════════════════════════════════════════════════ */
+.property-card-wrap { padding:16px; }
+
+.custom-property-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--trans), box-shadow var(--trans);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.custom-property-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Image container */
+.card-image-wrap {
+  position:relative;
+  overflow:hidden;
+  height: 230px;
+}
+.card-image-wrap img {
+  width:100%; height:100%;
+  object-fit:cover;
+  transition: transform .55s cubic-bezier(.4,0,.2,1);
+  display:block;
+}
+.custom-property-card:hover .card-image-wrap img { transform:scale(1.07); }
+
+/* Status badge – top left */
+.card-status-badge {
+  position:absolute; top:14px; left:14px;
+  padding:5px 12px;
+  border-radius:6px;
+  font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  backdrop-filter:blur(8px);
+  z-index:2;
+}
+.badge-sale  { background:rgba(15,118,110,.88); color:#fff; }
+.badge-rent  { background:rgba(244,162,97,.92); color:#1a1a1a; }
+
+/* Favourite icon – top right */
+.card-fav {
+  position:absolute; top:14px; right:14px; z-index:2;
+  width:34px; height:34px; border-radius:50%;
+  background:rgba(255,255,255,.88);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; color:#ccc;
+  transition:color var(--trans), background var(--trans);
+}
+.card-fav:hover { color:#e05252; background:#fff; }
+
+/* Gradient overlay on image bottom */
+.card-image-wrap::after {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0;
+  height:60px;
+  background:linear-gradient(0deg,rgba(7,30,27,.45),transparent);
+  pointer-events:none;
+}
+
+/* Price chip on image bottom */
+.card-price-chip {
+  position:absolute; bottom:12px; left:14px; z-index:2;
+  background:rgba(255,255,255,.95);
+  color:var(--p); font-weight:900; font-size:1rem;
+  padding:4px 12px; border-radius:6px;
+  box-shadow:0 2px 10px rgba(0,0,0,.12);
+  letter-spacing:-.01em;
+}
+
+/* Body */
+.card-body-custom {
+  padding:18px 20px 14px;
+}
+.card-body-custom h4 {
+  font-size:1.05rem; font-weight:800; margin-bottom:4px;
+}
+.card-body-custom h4 a {
+  color:var(--dark); text-decoration:none;
+  transition:color var(--trans);
+}
+.card-body-custom h4 a:hover { color:var(--p); }
+
+.card-location {
+  font-size:.8rem; color:var(--muted);
+  display:flex; align-items:center; gap:4px;
+  margin-bottom:10px;
+}
+.card-location i { color:var(--p); font-size:.75rem; }
+
+.card-desc {
+  font-size:.85rem; color:#667874; line-height:1.6;
+  margin-bottom:14px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+/* Divider */
+.card-divider {
+  height:1px; background:var(--line); margin-bottom:12px;
+}
+
+/* Stats row */
+.card-stats {
+  display:flex; gap:0; justify-content:space-between;
+}
+.card-stat {
+  display:flex; align-items:center; gap:5px;
+  font-size:.78rem; color:var(--muted); font-weight:600;
+}
+.card-stat i { color:var(--p); font-size:.7rem; }
+
+/* Rating */
+.card-rating {
+  display:flex; align-items:center; gap:3px;
+  font-size:.72rem; color:var(--accent);
+  margin-top:10px;
+}
+.card-rating span { color:var(--muted); font-size:.72rem; margin-left:3px; }
+
+/* Remove the old style blocks used by original markup */
+.single_property_description { display:none !important; }
+.single_property_content { display:none !important; }
+.single_property_price { display:none !important; }
+/* The original img tag is also hidden; card-image-wrap has its own */
+.custom-property-card > a:not(.card-fav) > img { display:none; }
+
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.footer { background:#0b1f1d; color:#cfe7e3; }
+.footer h3 { color:#fff; font-weight:800; }
+.copyright { font-size:13px; color:#91aaa5; }
+
+
+/* ── DETAIL PAGE ─────────────────────────────────────────── */
+.detail-header { padding:170px 0 80px; background:linear-gradient(135deg,rgba(15,118,110,.96),rgba(11,31,29,.95)),url('../img/bg/slide2.jpg') center/cover; color:#fff; }
+.detail-header h2 { font-size:52px; font-weight:900; color:#fff; text-transform:capitalize; }
+.detail-header p { color:#e3fffb; font-size:18px; }
+.property-detail-section { background:#f7fbfa; }
+.detail-label { font-weight:700; color:var(--dark); }
+.detail-image-card,.detail-info-card,.map-card { background:#fff; border:1px solid #e5efed; box-shadow:var(--card-shadow); border-radius:var(--radius); overflow:hidden; }
+.detail-image-card img { height:510px; object-fit:cover; width:100%; }
+.detail-info-card { padding:34px; height:100%; }
+.detail-badge { display:inline-block; background:var(--p); color:#fff; font-weight:800; padding:8px 14px; border-radius:6px; margin-bottom:18px; }
+.detail-info-card h3 { font-size:34px; color:var(--dark); font-weight:900; }
+.detail-address { color:#617570; }
+.detail-info-card h4 { color:var(--p); font-weight:900; font-size:28px; margin:20px 0; }
+.detail-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:26px 0; }
+.detail-grid div { background:var(--light); border:1px solid #d8ebe7; padding:16px; text-align:center; border-radius:8px; }
+.detail-grid strong { display:block; color:var(--dark); font-size:20px; }
+.detail-grid span { font-size:12px; color:#617570; text-transform:uppercase; font-weight:700; }
+.detail-back-btn { display:inline-block; padding:13px 22px; text-decoration:none !important; }
+.map-card { padding:28px; }
+.map-card h3 { font-weight:900; color:var(--dark); margin-bottom:18px; }
+.map-responsive { position:relative; width:100%; height:430px; overflow:hidden; border-radius:10px; border:1px solid #d8ebe7; }
+.map-responsive iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+
+/* ── SCROLL-REVEAL ANIMATIONS ───────────────────────────── */
+.reveal-card {
+  opacity:0;
+  transform:translateY(36px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal-card.in-view {
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal-card:nth-child(2) { transition-delay:.1s; }
+.reveal-card:nth-child(3) { transition-delay:.2s; }
+
+/* Stats counter strip */
+.stats-strip {
+  background: linear-gradient(90deg, var(--dark) 0%, #133a35 100%);
+  padding:36px 0;
+  border-top:3px solid var(--p);
+}
+.stat-box { text-align:center; padding:0 24px; }
+.stat-box .num { font-size:2.2rem; font-weight:900; color:var(--accent); font-family:'Exo',sans-serif; line-height:1; }
+.stat-box .lbl { font-size:.75rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.1em; margin-top:4px; }
+.stat-box + .stat-box { border-left:1px solid rgba(255,255,255,.08); }
+
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:991px) {
+  .home_bg { min-height:100svh; background-attachment:scroll; }
+  .hero-text h2 { font-size:clamp(2rem,7vw,3rem); }
+  .detail-image-card img { height:360px; }
+  .detail-info-card { margin-top:25px; }
+  .stat-box { padding:12px; }
+  .stat-box .num { font-size:1.6rem; }
+}
+@media(max-width:767px) {
+  .property-card-wrap { padding:10px 12px; }
+  .stats-strip .row { flex-direction:column; }
+  .stat-box + .stat-box { border-left:none; border-top:1px solid rgba(255,255,255,.08); margin-top:16px; padding-top:16px; }
+}
+@media(max-width:575px) {
+  .hero-text p { font-size:.95rem; }
+  .home_btn a { display:block; margin:10px auto; max-width:220px; text-align:center; }
+  .detail-grid { grid-template-columns:1fr 1fr; }
+  .detail-header h2 { font-size:2rem; }
+  .card-image-wrap { height:190px; }
+}
+
+/* ── OVERRIDE sticky-wrapper CSS from menu.css ──────────── */
+/* Ensure wrapper stays fixed and never gets moved by old JS  */
+.sticky-wrapper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  z-index: 1000 !important;
+  transform: none !important;
+}
+/* Bump body content down so hero isn't hidden behind navbar  */
+body > section#home.home_bg { margin-top: 0; }
+/* Remove is-sticky white override (we control via .scrolled)  */
+.sticky-wrapper.is-sticky .site-navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+}

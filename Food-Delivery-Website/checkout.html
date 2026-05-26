@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | SpiceRoute Kitchen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body class="checkout-page">
+
+  <nav class="navbar navbar-expand-lg fixed-top food-navbar nav-scrolled">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="brand-mark">SR</span> SpiceRoute Kitchen</a>
+      <div class="ms-auto nav-actions d-flex align-items-center gap-2">
+        <a href="index.html#menu" class="btn btn-outline-red">← Back to Menu</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="checkout-main">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+
+        <!-- LEFT: Order Summary -->
+        <div class="col-lg-5">
+          <div class="order-summary-card">
+            <div class="order-summary-header">
+              <h2>Your Order</h2>
+              <span class="order-badge" id="itemCountBadge">0 items</span>
+            </div>
+
+            <div id="checkoutItemsList" class="checkout-items-list">
+              <!-- Filled by JS -->
+            </div>
+
+            <div id="checkoutEmpty" class="checkout-empty d-none">
+              <div class="empty-icon">🍔</div>
+              <p>Your cart is empty.<br><a href="index.html#menu">Browse the menu</a> to add items.</p>
+            </div>
+
+            <div class="order-totals" id="orderTotals">
+              <div class="total-row"><span>Subtotal</span><strong id="coSubtotal">₹0</strong></div>
+              <div class="total-row"><span>Delivery fee</span><strong id="coDelivery">₹30</strong></div>
+              <div class="total-row discount-row d-none" id="discountRow">
+                <span>Discount (SPICY10)</span><strong id="coDiscount" class="text-success">−₹0</strong>
+              </div>
+              <div class="total-row grand-total"><span>Total</span><strong id="coTotal">₹0</strong></div>
+            </div>
+
+            <div class="promo-wrap">
+              <label class="promo-label">Promo Code</label>
+              <div class="promo-input-row">
+                <input type="text" id="promoInput" class="form-control" placeholder="Try SPICY10">
+                <button class="btn promo-apply-btn" id="promoApplyBtn">Apply</button>
+              </div>
+              <span class="promo-msg d-none" id="promoMsg"></span>
+            </div>
+
+            <div class="delivery-note">
+              <span class="dn-icon">🛵</span>
+              <span>Estimated delivery: <strong>25–35 min</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Checkout Steps -->
+        <div class="col-lg-7">
+          <div class="checkout-form-card">
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+              <div class="step active" id="step1Dot">
+                <div class="step-circle">1</div>
+                <span>Delivery Address</span>
+              </div>
+              <div class="step-line" id="stepLine"></div>
+              <div class="step" id="step2Dot">
+                <div class="step-circle">2</div>
+                <span>Payment</span>
+              </div>
+            </div>
+
+            <!-- STEP 1: Address -->
+            <div id="step1Panel" class="step-panel active">
+              <h3 class="step-title">Delivery Address</h3>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">First Name <span class="req">*</span></label>
+                  <input type="text" class="form-control co-input" id="firstName" placeholder="Arjun" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Last Name <span class="req">*</span></label>
+                  <input type="text" class="form-control co-input" id="lastName" placeholder="Sharma" required>
+                </div>
+                <div class="col-md-7">
+                  <label class="form-label">Email Address <span class="req">*</span></label>
+                  <input type="email" class="form-control co-input" id="email" placeholder="arjun@email.com" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label">Phone Number <span class="req">*</span></label>
+                  <input type="tel" class="form-control co-input" id="phone" placeholder="+91 98765 43210" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Flat / House / Building <span class="req">*</span></label>
+                  <input type="text" class="form-control co-input" id="address1" placeholder="No. 12, 3rd Floor, Spice Towers" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Street / Area / Locality</label>
+                  <input type="text" class="form-control co-input" id="address2" placeholder="MG Road, Indiranagar">
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label">City <span class="req">*</span></label>
+                  <input type="text" class="form-control co-input" id="city" placeholder="Bengaluru" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">State</label>
+                  <input type="text" class="form-control co-input" id="state" placeholder="Karnataka">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">PIN Code <span class="req">*</span></label>
+                  <input type="text" class="form-control co-input" id="pincode" placeholder="560038" maxlength="6" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Delivery Instructions</label>
+                  <textarea class="form-control co-input" id="instructions" rows="2" placeholder="Leave at door, call on arrival, etc."></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Address Type</label>
+                  <div class="addr-type-pills">
+                    <button type="button" class="addr-pill active" data-type="home">🏠 Home</button>
+                    <button type="button" class="addr-pill" data-type="work">🏢 Work</button>
+                    <button type="button" class="addr-pill" data-type="other">📍 Other</button>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn co-next-btn w-100 mt-4" id="goToPaymentBtn">
+                Continue to Payment →
+              </button>
+            </div>
+
+            <!-- STEP 2: Payment -->
+            <div id="step2Panel" class="step-panel">
+              <h3 class="step-title">Payment Method</h3>
+
+              <div class="payment-methods">
+                <label class="payment-option active" id="pmUPI">
+                  <input type="radio" name="paymentMethod" value="upi" checked>
+                  <div class="pm-content">
+                    <span class="pm-icon">📱</span>
+                    <div>
+                      <strong>UPI</strong>
+                      <span>Pay via any UPI app</span>
+                    </div>
+                  </div>
+                  <span class="pm-check">✓</span>
+                </label>
+
+                <label class="payment-option" id="pmCard">
+                  <input type="radio" name="paymentMethod" value="card">
+                  <div class="pm-content">
+                    <span class="pm-icon">💳</span>
+                    <div>
+                      <strong>Credit / Debit Card</strong>
+                      <span>Visa, Mastercard, Rupay</span>
+                    </div>
+                  </div>
+                  <span class="pm-check">✓</span>
+                </label>
+
+                <label class="payment-option" id="pmCOD">
+                  <input type="radio" name="paymentMethod" value="cod">
+                  <div class="pm-content">
+                    <span class="pm-icon">💵</span>
+                    <div>
+                      <strong>Cash on Delivery</strong>
+                      <span>Pay when food arrives</span>
+                    </div>
+                  </div>
+                  <span class="pm-check">✓</span>
+                </label>
+
+                <label class="payment-option" id="pmWallet">
+                  <input type="radio" name="paymentMethod" value="wallet">
+                  <div class="pm-content">
+                    <span class="pm-icon">👝</span>
+                    <div>
+                      <strong>Wallet</strong>
+                      <span>Paytm, PhonePe, Amazon Pay</span>
+                    </div>
+                  </div>
+                  <span class="pm-check">✓</span>
+                </label>
+              </div>
+
+              <!-- UPI Panel -->
+              <div class="pm-details-panel active" id="upiPanel">
+                <label class="form-label">UPI ID <span class="req">*</span></label>
+                <input type="text" class="form-control co-input" id="upiId" placeholder="yourname@upi">
+                <div class="upi-apps mt-3">
+                  <span class="upi-label">Quick pay via:</span>
+                  <div class="upi-app-list">
+                    <button class="upi-app-btn" type="button">GPay</button>
+                    <button class="upi-app-btn" type="button">PhonePe</button>
+                    <button class="upi-app-btn" type="button">Paytm</button>
+                    <button class="upi-app-btn" type="button">BHIM</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Panel -->
+              <div class="pm-details-panel" id="cardPanel">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">Card Number <span class="req">*</span></label>
+                    <input type="text" class="form-control co-input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Cardholder Name <span class="req">*</span></label>
+                    <input type="text" class="form-control co-input" id="cardName" placeholder="Arjun Sharma">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Expiry <span class="req">*</span></label>
+                    <input type="text" class="form-control co-input" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">CVV <span class="req">*</span></label>
+                    <input type="text" class="form-control co-input" id="cardCvv" placeholder="•••" maxlength="3">
+                  </div>
+                </div>
+                <div class="secure-badge mt-3">
+                  <span>🔒</span><span>256-bit SSL encrypted. Your card details are safe.</span>
+                </div>
+              </div>
+
+              <!-- COD Panel -->
+              <div class="pm-details-panel" id="codPanel">
+                <div class="cod-info">
+                  <span class="cod-icon">💵</span>
+                  <div>
+                    <strong>Pay when your order arrives</strong>
+                    <p>Please keep exact change ready. Our delivery partner will collect payment at your door.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wallet Panel -->
+              <div class="pm-details-panel" id="walletPanel">
+                <label class="form-label">Select Wallet</label>
+                <div class="wallet-list">
+                  <label class="wallet-option"><input type="radio" name="wallet" value="paytm"> Paytm</label>
+                  <label class="wallet-option"><input type="radio" name="wallet" value="phonepe"> PhonePe</label>
+                  <label class="wallet-option"><input type="radio" name="wallet" value="amazon"> Amazon Pay</label>
+                  <label class="wallet-option"><input type="radio" name="wallet" value="freecharge"> Freecharge</label>
+                </div>
+              </div>
+
+              <div class="step2-actions mt-4">
+                <button class="btn co-back-btn" id="backToAddressBtn">← Back</button>
+                <button class="btn co-place-btn" id="placeOrderBtn">
+                  🔥 Place Order
+                </button>
+              </div>
+            </div>
+
+            <!-- SUCCESS State -->
+            <div id="successPanel" class="step-panel success-panel">
+              <div class="success-icon">🎉</div>
+              <h3>Order Placed!</h3>
+              <p>Your spicy food is being prepared. Estimated delivery: <strong>25–35 min</strong>.</p>
+              <div class="order-id-badge">Order #SR-<span id="orderIdNum">000000</span></div>
+              <a href="index.html#menu" class="btn co-next-btn mt-4">Order More Food</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/checkout.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

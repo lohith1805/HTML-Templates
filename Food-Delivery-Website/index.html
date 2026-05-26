@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiceRoute Kitchen | Spicy Fast Food Delivery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top food-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><span class="brand-mark">SR</span> SpiceRoute Kitchen</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#review">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#delivery">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center gap-2 flex-wrap">
+          <a href="#menu" class="btn nav-order-btn">Order Now</a>
+          <button class="btn cart-nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartPanel" aria-controls="cartPanel">
+            <span class="cart-icon">🛒</span>
+            <span>Cart</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center min-vh-100 pt-5">
+        <div class="col-lg-6 hero-copy">
+          <span class="eyebrow">Spicy fast food from one kitchen</span>
+          <h1>Hot burgers, wraps, fries and coolers delivered fresh.</h1>
+          <p>SpiceRoute Kitchen is a single-restaurant fast food delivery template focused on bold flavours, spicy sauces and quick bites. Browse the menu cards, filter your cravings and pick your favourite snack in seconds.</p>
+          <div class="hero-actions d-flex flex-wrap gap-3">
+            <a href="#menu" class="btn btn-primary-red">Explore Fast Food</a>
+            <a href="#delivery" class="btn btn-outline-red">How Ordering Works</a>
+          </div>
+          <div class="trust-row">
+            <div><strong>4.8★</strong><span>Food rating</span></div>
+            <div><strong>25 min</strong><span>Average delivery</span></div>
+            <div><strong>Hot</strong><span>Spicy specials</span></div>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-5 mt-lg-0">
+          <div class="hero-image-card">
+            <img src="images/loaded-combo.jpg" alt="Spicy fast food platter" class="img-fluid">
+            <div class="floating-offer">
+              <strong>Today’s Combo</strong>
+              <span>Loaded burger, peri fries and chilli cooler</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="restaurant-strip py-4">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <h2>SpiceRoute Kitchen</h2>
+          <p class="mb-0">A one-restaurant fast food ordering page for spicy snacks, burgers, wraps and drinks.</p>
+        </div>
+        <div class="col-md-8">
+          <div class="row g-3">
+            <div class="col-6 col-lg-3"><div class="mini-info"><b>Open Now</b><span>11 AM - 11 PM</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-info"><b>Fast Food</b><span>Burgers & snacks</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-info"><b>Spice Levels</b><span>Mild to extra hot</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-info"><b>Fresh Prep</b><span>Made after order</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-section section-padding">
+    <div class="container">
+      <div class="section-title text-center mb-4">
+        <span class="eyebrow">Spicy fast food menu</span>
+        <h2>Popular orders from our kitchen</h2>
+        <p>Every card uses a different food picture and stays focused on spicy fast food items.</p>
+      </div>
+
+      <div class="menu-toolbar d-flex flex-column flex-lg-row gap-3 justify-content-between align-items-lg-center mb-4">
+        <div class="filter-pills" aria-label="Filter menu items">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="burger">Burgers</button>
+          <button class="filter-btn" data-category="wrap">Wraps</button>
+          <button class="filter-btn" data-category="fries">Fries & Snacks</button>
+          <button class="filter-btn" data-category="drink">Drinks</button>
+        </div>
+        <div class="search-wrap">
+          <input type="text" id="foodSearch" class="form-control" placeholder="Search spicy burger, wrap, fries...">
+          <button class="search-clear" type="button" id="clearSearch" aria-label="Clear search">×</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="foodGrid">
+        <div class="col-md-6 col-lg-4 food-item" data-category="burger" data-name="Spicy Double Cheese Burger">
+          <article class="food-card signature-card">
+            <div class="food-img"><img src="images/double-burger.jpg" alt="Spicy Double Cheese Burger"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Spicy Double Cheese Burger</h3><span class="rating">4.9★</span></div>
+              <p>Double patty burger with melted cheese, chilli mayo, pickles and toasted bun.</p>
+              <div class="food-meta"><span>25 mins</span><span>Extra spicy</span><span>Bestseller</span></div>
+              <div class="food-bottom"><strong>₹229</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="burger" data-name="Peri Peri Crispy Burger">
+          <article class="food-card split-card">
+            <div class="food-img"><img src="images/peri-burger.jpg" alt="Peri Peri Crispy Burger"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Peri Peri Crispy Burger</h3><span class="rating">4.8★</span></div>
+              <p>Crispy patty, peri peri sauce, crunchy lettuce and a soft sesame bun.</p>
+              <div class="food-meta"><span>22 mins</span><span>Crunchy</span><span>Hot sauce</span></div>
+              <div class="food-bottom"><strong>₹189</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="burger" data-name="Chilli Lava Burger">
+          <article class="food-card plate-card">
+            <div class="food-img"><img src="images/chilli-burger.jpg" alt="Chilli Lava Burger"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Chilli Lava Burger</h3><span class="rating">4.7★</span></div>
+              <p>Smoky burger layered with chilli spread, onions, tomato and creamy dip.</p>
+              <div class="food-meta"><span>20 mins</span><span>Spicy</span><span>Chef pick</span></div>
+              <div class="food-bottom"><strong>₹179</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="burger" data-name="Smoky Stack Burger">
+          <article class="food-card compact-card">
+            <div class="food-img"><img src="images/spicy-stack-burger.jpg" alt="Smoky Stack Burger"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Smoky Stack Burger</h3><span class="rating">4.6★</span></div>
+              <p>Thick burger stack with smoky sauce, cheese, lettuce and spicy ketchup.</p>
+              <div class="food-meta"><span>24 mins</span><span>Loaded</span><span>Cheesy</span></div>
+              <div class="food-bottom"><strong>₹219</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="wrap" data-name="Tandoori Crunch Wrap">
+          <article class="food-card ribbon-card">
+            <div class="food-img"><img src="images/wrap.jpg" alt="Tandoori Crunch Wrap"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Tandoori Crunch Wrap</h3><span class="rating">4.7★</span></div>
+              <p>Toasted wrap filled with tandoori masala, crisp veggies and chilli spread.</p>
+              <div class="food-meta"><span>18 mins</span><span>Wrap</span><span>Quick bite</span></div>
+              <div class="food-bottom"><strong>₹149</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="wrap" data-name="Schezwan Paneer Wrap">
+          <article class="food-card fresh-card">
+            <div class="food-img"><img src="images/fries-wrap.jpg" alt="Schezwan Paneer Wrap"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Schezwan Paneer Wrap</h3><span class="rating">4.6★</span></div>
+              <p>Soft wrap with spicy paneer filling, onions, capsicum and schezwan sauce.</p>
+              <div class="food-meta"><span>20 mins</span><span>Paneer</span><span>Hot</span></div>
+              <div class="food-bottom"><strong>₹169</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="fries" data-name="Peri Peri Fries Box">
+          <article class="food-card split-card">
+            <div class="food-img"><img src="images/loaded-combo.jpg" alt="Peri Peri Fries Box"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Peri Peri Fries Box</h3><span class="rating">4.8★</span></div>
+              <p>Golden fries tossed with peri peri masala and served with chilli cheese dip.</p>
+              <div class="food-meta"><span>15 mins</span><span>Fries</span><span>Shareable</span></div>
+              <div class="food-bottom"><strong>₹129</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="fries" data-name="Loaded Nacho Burger Plate">
+          <article class="food-card signature-card">
+            <div class="food-img"><img src="images/crispy-burger.jpg" alt="Loaded Nacho Burger Plate"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Loaded Nacho Burger Plate</h3><span class="rating">4.5★</span></div>
+              <p>A spicy burger plate with crunchy sides, fries and a bold house dip.</p>
+              <div class="food-meta"><span>28 mins</span><span>Combo</span><span>Spicy dip</span></div>
+              <div class="food-bottom"><strong>₹259</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="fries" data-name="Masala Snack Bowl">
+          <article class="food-card compact-card">
+            <div class="food-img"><img src="images/veg-loaded-snack.jpg" alt="Masala Snack Bowl"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Masala Snack Bowl</h3><span class="rating">4.4★</span></div>
+              <p>A quick spicy snack bowl with crunchy toppings and tangy masala dressing.</p>
+              <div class="food-meta"><span>12 mins</span><span>Snack</span><span>Tangy</span></div>
+              <div class="food-bottom"><strong>₹109</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="drink" data-name="Masala Cola Cooler">
+          <article class="food-card fresh-card">
+            <div class="food-img"><img src="images/masala-cola.jpg" alt="Masala Cola Cooler"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Masala Cola Cooler</h3><span class="rating">4.5★</span></div>
+              <p>Cold fizzy cola with masala salt, lime and ice for spicy fast food meals.</p>
+              <div class="food-meta"><span>8 mins</span><span>Drink</span><span>Chilled</span></div>
+              <div class="food-bottom"><strong>₹79</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="drink" data-name="Chilli Lime Soda">
+          <article class="food-card plate-card">
+            <div class="food-img"><img src="images/lemon-cooler.jpg" alt="Chilli Lime Soda"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Chilli Lime Soda</h3><span class="rating">4.6★</span></div>
+              <p>Refreshing lime soda with chilli salt, mint and crushed ice.</p>
+              <div class="food-meta"><span>8 mins</span><span>Cooler</span><span>Fresh</span></div>
+              <div class="food-bottom"><strong>₹69</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 food-item" data-category="drink" data-name="Mint Fire Cooler">
+          <article class="food-card ribbon-card">
+            <div class="food-img"><img src="images/drink.jpg" alt="Mint Fire Cooler"></div>
+            <div class="food-content">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h3>Mint Fire Cooler</h3><span class="rating">4.7★</span></div>
+              <p>Mint, lime and a light spicy salt rim to balance hot burgers and wraps.</p>
+              <div class="food-meta"><span>10 mins</span><span>Drink</span><span>Refreshing</span></div>
+              <div class="food-bottom"><strong>₹89</strong><button class="btn add-btn">Add</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="menu-status text-center mt-4">
+        <span id="menuResultCount">Showing 6 popular spicy fast food items</span>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn show-menu-btn" type="button" id="showAllMenuBtn">Show All Menu Items</button>
+      </div>
+      <p id="emptyState" class="text-center mt-4 d-none">No fast food items found. Try another search.</p>
+    </div>
+  </section>
+
+  <section id="review" class="review-section section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <span class="eyebrow">Leave us a review</span>
+          <h2>How was your SpiceRoute order?</h2>
+          <p>Share quick feedback about taste, spice level, packaging or delivery. This keeps the section useful for a real restaurant website without changing the current fast-food style.</p>
+          <div class="review-highlights">
+            <div><strong>4.8★</strong><span>Average rating</span></div>
+            <div><strong>1k+</strong><span>Happy orders</span></div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form class="review-form" id="reviewForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="reviewName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="reviewName" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="reviewRating" class="form-label">Rating</label>
+                <select class="form-select" id="reviewRating" required>
+                  <option value="">Choose rating</option>
+                  <option>5 - Loved it</option>
+                  <option>4 - Very good</option>
+                  <option>3 - Good</option>
+                  <option>2 - Needs improvement</option>
+                  <option>1 - Poor</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="favoriteItem" class="form-label">Favourite Item</label>
+                <input type="text" class="form-control" id="favoriteItem" placeholder="Example: Chilli Lava Burger">
+              </div>
+              <div class="col-md-6">
+                <label for="spiceLevel" class="form-label">Spice Level</label>
+                <select class="form-select" id="spiceLevel">
+                  <option>Mild</option>
+                  <option selected>Medium</option>
+                  <option>Hot</option>
+                  <option>Extra Hot</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="reviewMessage" class="form-label">Your Feedback</label>
+                <textarea class="form-control" id="reviewMessage" rows="4" placeholder="Tell us about the food, taste, packaging or delivery experience" required></textarea>
+              </div>
+              <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3">
+                <button type="submit" class="btn btn-primary-red">Submit Review</button>
+                <span class="review-note">Demo form for frontend practice — no backend connected.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="delivery" class="delivery-section section-padding">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <span class="eyebrow">Typical food delivery homepage</span>
+        <h2>Simple flow for one restaurant ordering</h2>
+        <p>This layout follows a normal food-delivery pattern: hero, restaurant details, menu cards, search/filter and contact CTA.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3"><div class="flow-card"><span>01</span><h3>One restaurant</h3><p>The page clearly shows that all food comes from SpiceRoute Kitchen.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="flow-card"><span>02</span><h3>Fast food cards</h3><p>Cards show food image, name, spicy description, rating, price and action button.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="flow-card"><span>03</span><h3>Quick filter</h3><p>Users can filter burgers, wraps, fries and drinks directly from the homepage.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="flow-card"><span>04</span><h3>Live cart</h3><p>Items can be added, counted, updated and removed without leaving the page.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-strip py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h2>Spicy fast food for lunch, evening cravings and weekend orders.</h2>
+          <p>Browse burgers, wraps, fries and coolers from one focused restaurant menu.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end">
+          <a href="#menu" class="btn btn-light-red">Explore Menu</a>
+          <a href="tel:+919876543210" class="btn btn-outline-light ms-2">Call Restaurant</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <p class="mb-0">© 2026 SpiceRoute Kitchen. Spicy fast food homepage template.</p>
+      <p class="mb-0">HTML • CSS • JavaScript • Bootstrap</p>
+    </div>
+  </footer>
+
+  <div class="offcanvas offcanvas-end cart-panel" tabindex="-1" id="cartPanel" aria-labelledby="cartPanelLabel">
+    <div class="offcanvas-header">
+      <div>
+        <span class="eyebrow mb-1">Your order</span>
+        <h5 class="offcanvas-title" id="cartPanelLabel">SpiceRoute Cart</h5>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="cart-items flex-grow-1"></div>
+      <div id="cartEmpty" class="cart-empty text-center">
+        <div class="empty-cart-icon">🍔</div>
+        <h6>Your cart is empty</h6>
+        <p>Add spicy burgers, wraps, snacks or coolers from the menu.</p>
+        <a href="#menu" class="btn btn-primary-red" data-bs-dismiss="offcanvas">Browse Menu</a>
+      </div>
+      <div class="cart-summary" id="cartSummary">
+        <div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+        <div class="summary-row"><span>Delivery</span><strong id="deliveryFee">₹30</strong></div>
+        <div class="summary-row total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+        <button class="btn checkout-btn w-100" id="checkoutBtn">Proceed to Checkout</button>
+        <button class="btn clear-cart-btn w-100" id="clearCartBtn">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-toast" id="cartToast" role="status" aria-live="polite">Added to cart</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout | Woodora Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-cart-key="01-Ecommerce-Store-cart" class="checkout-body">
+  <header class="checkout-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand" href="index.html">Woodora<span>Home</span></a>
+      <a href="cart.html" class="cart-mini nav-cart-link">Cart <span class="cart-count-pill" data-cart-count>0</span></a>
+    </div>
+  </header>
+
+  <main class="checkout-layout section-reveal">
+    <div class="container">
+      <div class="row g-0 checkout-shell">
+        <div class="col-lg-7 checkout-left">
+          <form data-validate-form data-checkout-form novalidate>
+            <section class="checkout-section">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Contact</h2>
+                <a href="#" class="small-link">Sign in</a>
+              </div>
+              <input type="email" class="form-control" placeholder="Email" required>
+              <div class="form-check mt-3"><input class="form-check-input" type="checkbox" id="updates" checked><label class="form-check-label" for="updates">Please send me order updates via Email and WhatsApp messages 😊</label></div>
+              <div class="offer-note mt-4"><strong>FREE FURNITURE CARE KIT WORTH ₹399</strong><p>Free care kit on orders above ₹10,000. Offer valid till stocks last. The kit will be confirmed in your invoice after order fulfillment.</p></div>
+            </section>
+
+            <section class="checkout-section">
+              <h2>Delivery</h2>
+              <div class="row g-3">
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="First name" required></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Last name" required></div>
+                <div class="col-12"><input type="text" class="form-control" placeholder="Address" required></div>
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="City" required></div>
+                <div class="col-md-4"><select class="form-select" required><option value="">State</option><option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Maharashtra</option><option>Tamil Nadu</option></select></div>
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="PIN code" pattern="[0-9]{6}" required></div>
+                <div class="col-12"><input type="tel" class="form-control" placeholder="Phone" pattern="[0-9]{10}" required></div>
+              </div>
+              <div class="form-check mt-3"><input class="form-check-input" type="checkbox" id="saveInfo"><label class="form-check-label" for="saveInfo">Save this information for next time</label></div>
+            </section>
+
+            <section class="checkout-section">
+              <h2>Shipping method</h2>
+              <div class="shipping-box">Standard furniture delivery will be calculated after address validation. Demo shipping is ₹99 in this template.</div>
+            </section>
+
+            <section class="checkout-section">
+              <h2>Payment</h2>
+              <p class="text-muted small mb-3">All transactions are secure and encrypted.</p>
+              <div class="payment-option active"><input type="radio" name="payment" checked><div><strong>Razorpay Secure</strong><span>EMI, Cards, UPI, Wallets, NetBanking</span></div><em>UPI • VISA • MC</em></div>
+              <div class="payment-option"><input type="radio" name="payment"><div><strong>Cashfree Payments</strong><span>UPI, cards and wallets</span></div><em>UPI • VISA</em></div>
+              <div class="payment-option"><input type="radio" name="payment"><div><strong>Credit card</strong><span>Visa, Mastercard and RuPay</span></div><em>Cards</em></div>
+              <div class="payment-option"><input type="radio" name="payment"><div><strong>Cash on Delivery (COD)</strong><span>Available on selected PIN codes</span></div><em>COD</em></div>
+            </section>
+
+            <section class="checkout-section">
+              <h2>Billing address</h2>
+              <label class="billing-option active"><input type="radio" name="billing" checked> Same as shipping address</label>
+              <label class="billing-option"><input type="radio" name="billing"> Use a different billing address</label>
+              <button class="btn btn-primary w-100 mt-4" type="submit">Pay now</button>
+              <p class="mt-3 mb-0 fw-bold" data-form-message></p>
+            </section>
+          </form>
+        </div>
+
+        <div class="col-lg-5 checkout-right">
+          <div class="order-summary-sticky">
+            <div data-checkout-summary></div>
+            <div class="addon-box">
+              <h4>Add to your order</h4>
+              <div class="d-flex gap-3 align-items-center">
+                <img src="images/item-5.jpg" alt="Care kit">
+                <div class="flex-grow-1"><strong>Woodora Furniture Care Kit</strong><p>INR ₹399.00</p></div>
+                <button class="btn btn-primary btn-sm" data-add-cart data-name="Woodora Furniture Care Kit" data-price="399" data-image="images/item-5.jpg" data-desc="Care kit for polishing and maintaining wooden furniture.">ADD</button>
+              </div>
+            </div>
+            <div class="discount-row"><input class="form-control" placeholder="Discount code or gift card"><button class="btn btn-dark">Apply</button></div>
+            <div data-checkout-totals></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

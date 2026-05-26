@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nestora Realty - Real Estate Website</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+  <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/slick.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/custom-realestate.css">
+</head>
+<body data-spy="scroll" data-offset="80">
+
+  <!-- MOBILE MENU -->
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3"><span class="icon-close2 js-menu-toggle"></span></div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <!-- NAVBAR — always-visible, transparent → opaque on scroll -->
+  <div class="sticky-wrapper">
+    <header class="site-navbar site-navbar-target" role="banner" id="mainNav">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-6 col-xl-3">
+            <h1 class="mb-0 site-logo nestora-logo"><a href="index.html">Nestora<span>Realty</span></a></h1>
+          </div>
+          <div class="col-12 col-md-9 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#properties" class="nav-link">Property</a></li>
+                <li><a href="property-details.html?id=1" class="nav-link">Details</a></li>
+                <li><a href="#search" class="nav-link">Search</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position:relative;top:3px;">
+            <a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="home_bg" style="background-image:url(assets/img/bg/home-bg.jpg);background-size:cover;background-position:center center;">
+    <div class="home-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 text-center">
+          <div class="hero-text">
+            <h2>Find spaces that feel like home</h2>
+            <p>Explore verified apartments, villas and commercial spaces with clear pricing, location details and property highlights.</p>
+            <div class="home_btn">
+              <a href="#search" class="app-btn page-scroll home_btn_color_one">Search Property</a>
+              <a href="#properties" class="app-btn page-scroll home_btn_color_two">View Listing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="num" data-count="1200">0</div>
+            <div class="lbl">Properties Listed</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="num" data-count="840">0</div>
+            <div class="lbl">Happy Clients</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="num" data-count="18">0</div>
+            <div class="lbl">Cities Covered</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="num" data-count="99">0</div>
+            <div class="lbl">% Verified Listings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div id="search" class="search_bar section-padding">
+    <div class="container">
+      <div class="section-title text-center wow zoomIn search-title"><h2>Search Properties</h2><div></div></div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><input id="keywordSearch" type="text" placeholder="Search by name or city"></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="cityFilter"><option value="all">Location</option><option>Hyderabad</option><option>Bengaluru</option><option>Chennai</option><option>Pune</option><option>Mumbai</option><option>Delhi</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="typeFilter"><option value="all">Property Type</option><option>Villa</option><option>Apartment</option><option>House</option><option>Studio</option><option>Commercial</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="statusFilter"><option value="all">Property Status</option><option>For Sale</option><option>For Rent</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="budgetFilter"><option value="all">Budget</option><option value="rent">Rent below ₹1.2 L</option><option value="sale-low">Sale below ₹1.5 Cr</option><option value="sale-high">Sale above ₹1.5 Cr</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="bedFilter"><option value="all">Bedrooms</option><option value="1">1+</option><option value="3">3+</option><option value="4">4+</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_search"><select id="bathFilter"><option value="all">Bathrooms</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select></div></div>
+        <div class="col-lg-3 col-sm-6 col-xs-12"><div class="search_btn"><button id="resetFilters" type="button" class="btn btn-serach-bg">Reset Search</button></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPERTIES -->
+  <section id="properties" class="template_property section-padding">
+    <div class="container">
+      <div class="section-title text-center wow zoomIn">
+        <h2>Featured Listings</h2><div></div>
+        <p class="section-subtitle">Property cards are linked to a detail page with location map and complete information.</p>
+      </div>
+      <div id="noResults" class="alert alert-info text-center" style="display:none;">No properties match your current search. Try changing the filters.</div>
+
+      <!-- FOR SALE -->
+      <div class="listing-group property-list sale-listings">
+        <div class="listing-heading text-center">
+          <span>Buy Properties</span>
+          <h3>Properties for Sale</h3>
+          <p>Explore verified homes and apartments selected for long-term ownership and comfortable family living.</p>
+        </div>
+        <div class="row">
+
+          <!-- Card 1 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Hyderabad" data-type="Villa" data-status="For Sale"
+               data-price="18500000" data-title="marina sky villa hyderabad villa">
+            <a href="property-details.html?id=1" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/1.jpg" alt="Marina Sky Villa">
+                  <span class="card-status-badge badge-sale">For Sale</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹1.85 Cr</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=1">Marina Sky Villa</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> Financial District, Hyderabad</div>
+                  <p class="card-desc">A premium family villa with open living space, modular kitchen, landscaped balcony and easy access to schools, offices and hospitals.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-bed"></i> 4 Beds</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 3 Baths</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 2450 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Chennai" data-type="House" data-status="For Sale"
+               data-price="12500000" data-title="palm grove house chennai house">
+            <a href="property-details.html?id=3" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/3.jpg" alt="Palm Grove House">
+                  <span class="card-status-badge badge-sale">For Sale</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹1.25 Cr</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=3">Palm Grove House</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> ECR Road, Chennai</div>
+                  <p class="card-desc">A peaceful independent home with a private garden, spacious bedrooms and quick access to coastal roads and shopping zones.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-bed"></i> 3 Beds</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 3 Baths</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 2100 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Mumbai" data-type="Apartment" data-status="For Sale"
+               data-price="24500000" data-title="lakefront residency mumbai apartment">
+            <a href="property-details.html?id=5" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/5.jpg" alt="Lakefront Residency">
+                  <span class="card-status-badge badge-sale">For Sale</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹2.45 Cr</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=5">Lakefront Residency</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> Powai, Mumbai</div>
+                  <p class="card-desc">A lake-facing residence with premium amenities, clubhouse access, gym, children's play area and a calm urban lifestyle.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-bed"></i> 3 Beds</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 3 Baths</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 1720 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sale-listings -->
+
+      <!-- FOR RENT -->
+      <div class="listing-group property-list rent-listings">
+        <div class="listing-heading text-center">
+          <span>Rent Properties</span>
+          <h3>Properties for Rent</h3>
+          <p>Find ready-to-move rental homes and commercial spaces with practical locations and clear monthly pricing.</p>
+        </div>
+        <div class="row">
+
+          <!-- Card 4 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Bengaluru" data-type="Apartment" data-status="For Rent"
+               data-price="58000" data-title="green view apartment bengaluru apartment">
+            <a href="property-details.html?id=2" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/2.jpg" alt="Green View Apartment">
+                  <span class="card-status-badge badge-rent">For Rent</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹58,000/mo</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=2">Green View Apartment</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> Whitefield, Bengaluru</div>
+                  <p class="card-desc">A bright apartment near tech parks with city views, natural ventilation, covered parking and a secure gated community.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-bed"></i> 3 Beds</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 2 Baths</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 1580 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Pune" data-type="Studio" data-status="For Rent"
+               data-price="32000" data-title="urban nest studio pune studio">
+            <a href="property-details.html?id=4" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/4.jpg" alt="Urban Nest Studio">
+                  <span class="card-status-badge badge-rent">For Rent</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹32,000/mo</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=4">Urban Nest Studio</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> Koregaon Park, Pune</div>
+                  <p class="card-desc">A compact modern studio for professionals with premium fittings, workstation space and excellent café and metro connectivity.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-bed"></i> 1 Bed</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 1 Bath</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 780 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 property-card-wrap reveal-card"
+               data-city="Delhi" data-type="Commercial" data-status="For Rent"
+               data-price="110000" data-title="cedar business space delhi commercial">
+            <a href="property-details.html?id=6" style="text-decoration:none;">
+              <div class="custom-property-card">
+                <div class="card-image-wrap">
+                  <img src="assets/img/property/6.jpg" alt="Cedar Business Space">
+                  <span class="card-status-badge badge-rent">For Rent</span>
+                  <span class="card-fav"><i class="fa fa-heart-o"></i></span>
+                  <span class="card-price-chip">₹1.1 L/mo</span>
+                </div>
+                <div class="card-body-custom">
+                  <h4><a href="property-details.html?id=6">Cedar Business Space</a></h4>
+                  <div class="card-location"><i class="fa fa-map-marker"></i> Saket, New Delhi</div>
+                  <p class="card-desc">Ready-to-use commercial floor with reception space, meeting rooms, pantry and prime road visibility for growing teams.</p>
+                  <div class="card-divider"></div>
+                  <div class="card-stats">
+                    <div class="card-stat"><i class="fa fa-building"></i> Office</div>
+                    <div class="card-stat"><i class="fa fa-shower"></i> 2 Baths</div>
+                    <div class="card-stat"><i class="fa fa-expand"></i> 1950 sq ft</div>
+                  </div>
+                  <div class="card-rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <span>5.0</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /rent-listings -->
+
+    </div>
+  </section>
+
+  <!-- CONTACT US -->
+  <section id="contact" class="contact-section section-padding" style="background: linear-gradient(135deg, #1a4d4d 0%, #0f2f2f 100%);">
+    <div class="container">
+      <div class="section-title text-center wow zoomIn" style="margin-bottom: 50px;">
+        <h2 style="color: white;">Contact Us</h2>
+        <div style="background: #00a699; width: 80px; height: 3px; margin: 15px auto;"></div>
+        <p style="color: #b0b0b0; font-size: 16px; margin-top: 15px;">Have a question about buying, renting or visiting a property? Send your details and our property advisor will get back to you.</p>
+      </div>
+
+      <div class="row">
+        <!-- CONTACT FORM -->
+        <div class="col-lg-6 col-md-12 mb-4">
+          <div class="contact-form-wrapper" style="background: #1a2f2f; padding: 40px; border-radius: 8px;">
+            <h3 style="color: white; margin-bottom: 30px; font-weight: 600;">Send an Enquiry</h3>
+            
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label style="color: white; margin-bottom: 10px; display: block; font-weight: 500;">Full Name</label>
+                  <input type="text" class="form-control contact-input" placeholder="Enter your name" required style="background: #0f2f2f; border: 1px solid #00a699; color: #b0b0b0; padding: 12px; border-radius: 4px;">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label style="color: white; margin-bottom: 10px; display: block; font-weight: 500;">Phone Number</label>
+                  <input type="tel" class="form-control contact-input" placeholder="Enter phone number" required style="background: #0f2f2f; border: 1px solid #00a699; color: #b0b0b0; padding: 12px; border-radius: 4px;">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label style="color: white; margin-bottom: 10px; display: block; font-weight: 500;">Email Address</label>
+                  <input type="email" class="form-control contact-input" placeholder="Enter email address" required style="background: #0f2f2f; border: 1px solid #00a699; color: #b0b0b0; padding: 12px; border-radius: 4px;">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label style="color: white; margin-bottom: 10px; display: block; font-weight: 500;">Interested In</label>
+                  <select class="form-control contact-input" required style="background: #0f2f2f; border: 1px solid #00a699; color: #b0b0b0; padding: 12px; border-radius: 4px;">
+                    <option>Select option</option>
+                    <option>Buying Property</option>
+                    <option>Renting Property</option>
+                    <option>Property Consultation</option>
+                    <option>Site Visit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label style="color: white; margin-bottom: 10px; display: block; font-weight: 500;">Message</label>
+                <textarea class="form-control contact-input" rows="5" placeholder="Tell us about your property requirement" required style="background: #0f2f2f; border: 1px solid #00a699; color: #b0b0b0; padding: 12px; border-radius: 4px; resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-block" style="background: #00a699; color: white; padding: 14px; border: none; border-radius: 4px; font-weight: 600; font-size: 16px; cursor: pointer; transition: background 0.3s;">SUBMIT ENQUIRY</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="col-lg-6 col-md-12">
+          <div class="contact-info-wrapper">
+            <div class="section-subtitle" style="color: #00a699; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; margin-bottom: 15px;">REACH NESTORA REALTY</div>
+            <h3 style="color: white; font-size: 32px; margin-bottom: 30px; font-weight: 700;">Talk to a property advisor</h3>
+            <p style="color: #b0b0b0; line-height: 1.8; margin-bottom: 40px;">Our team helps with property shortlisting, price guidance, site visit scheduling and location information.</p>
+
+            <!-- OFFICE ADDRESS -->
+            <div class="contact-info-item mb-4">
+              <div style="display: flex; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
+                  <i class="fa fa-map-marker" style="color: white; font-size: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="color: white; margin-bottom: 8px; font-weight: 600;">Office Address</h4>
+                  <p style="color: #b0b0b0; margin: 0;">4th Floor, Green Avenue Business Center, Hyderabad, Telangana</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- PHONE -->
+            <div class="contact-info-item mb-4">
+              <div style="display: flex; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
+                  <i class="fa fa-phone" style="color: white; font-size: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="color: white; margin-bottom: 8px; font-weight: 600;">Phone</h4>
+                  <p style="color: #b0b0b0; margin: 0;">+91 98765 43210</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="contact-info-item mb-4">
+              <div style="display: flex; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
+                  <i class="fa fa-envelope" style="color: white; font-size: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="color: white; margin-bottom: 8px; font-weight: 600;">Email</h4>
+                  <p style="color: #b0b0b0; margin: 0;">hello@nestorarealty.com</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- WORKING HOURS -->
+            <div class="contact-info-item mb-4">
+              <div style="display: flex; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
+                  <i class="fa fa-clock-o" style="color: white; font-size: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="color: white; margin-bottom: 8px; font-weight: 600;">Working Hours</h4>
+                  <p style="color: #b0b0b0; margin: 0;">Monday - Saturday, 9:30 AM - 7:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SOCIAL MEDIA -->
+            <div class="social-icons" style="margin-top: 30px; display: flex; gap: 12px;">
+              <a href="#" style="width: 45px; height: 45px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: background 0.3s;" onmouseover="this.style.background='#008878'" onmouseout="this.style.background='#00a699'">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#" style="width: 45px; height: 45px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: background 0.3s;" onmouseover="this.style.background='#008878'" onmouseout="this.style.background='#00a699'">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="#" style="width: 45px; height: 45px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: background 0.3s;" onmouseover="this.style.background='#008878'" onmouseout="this.style.background='#00a699'">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" style="width: 45px; height: 45px; background: #00a699; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: background 0.3s;" onmouseover="this.style.background='#008878'" onmouseout="this.style.background='#00a699'">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer section-padding">
+    <div class="container text-center">
+      <h3>Nestora Realty</h3>
+      <p>Curated homes, verified listings and simple property decisions for modern buyers.</p>
+      <p class="copyright">© 2026 Nestora Realty. Frontend template for real estate listing assignment.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/jquery-1.12.4.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/filter-realestate.js"></script>
+  <script>
+  (function() {
+
+    /* ── CONTACT FORM HANDLING ── */
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var formInputs = contactForm.querySelectorAll('.contact-input');
+        var formData = {};
+        
+        formInputs.forEach(function(input) {
+          formData[input.name] = input.value;
+        });
+        
+        // Show success message
+        alert('Thank you for your enquiry! Our team will contact you shortly.');
+        contactForm.reset();
+        
+        return false;
+      });
+
+      // Add focus/blur effects for inputs
+      var inputs = contactForm.querySelectorAll('.contact-input');
+      inputs.forEach(function(input) {
+        input.addEventListener('focus', function() {
+          this.style.borderColor = '#00d4b8';
+          this.style.boxShadow = '0 0 8px rgba(0, 212, 184, 0.3)';
+        });
+        input.addEventListener('blur', function() {
+          this.style.borderColor = '#00a699';
+          this.style.boxShadow = 'none';
+        });
+      });
+    }
+
+    /* ── NAVBAR: transparent → dark on scroll ── */
+    var nav = document.getElementById('mainNav');
+    function updateNav() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    /* ── DISABLE the old sticky-wrapper JS height tricks ── */
+    // prevent sticky.js from adding transform/top that hides the nav
+    var sw = document.querySelector('.sticky-wrapper');
+    if (sw) {
+      sw.style.height = 'auto';
+      sw.style.position = 'fixed';
+      sw.style.top = '0';
+      sw.style.left = '0';
+      sw.style.right = '0';
+      sw.style.width = '100%';
+      sw.style.zIndex = '1000';
+    }
+
+    /* ── SCROLL-REVEAL for property cards ── */
+    var cards = document.querySelectorAll('.reveal-card');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      cards.forEach(function(c) { obs.observe(c); });
+    } else {
+      cards.forEach(function(c) { c.classList.add('in-view'); });
+    }
+
+    /* ── ANIMATED COUNTER for stats strip ── */
+    function animateCount(el, target, duration) {
+      var start = 0, step = Math.ceil(target / (duration / 16));
+      var timer = setInterval(function() {
+        start = Math.min(start + step, target);
+        el.textContent = start.toLocaleString();
+        if (start >= target) clearInterval(timer);
+      }, 16);
+    }
+    var statsObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          animateCount(el, parseInt(el.dataset.count), 1200);
+          statsObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.num[data-count]').forEach(function(el) { statsObs.observe(el); });
+
+    /* ── FAVOURITE heart toggle ── */
+    document.addEventListener('click', function(e) {
+      var fav = e.target.closest('.card-fav');
+      if (!fav) return;
+      e.preventDefault(); e.stopPropagation();
+      var icon = fav.querySelector('i');
+      var active = icon.classList.contains('fa-heart');
+      icon.className = active ? 'fa fa-heart-o' : 'fa fa-heart';
+      fav.style.color = active ? '#ccc' : '#e05252';
+    });
+
+  })();
+  </script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

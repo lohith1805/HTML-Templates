@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyTrail Travels | Open Travel Booking Template</title>
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SkyTrail<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Book Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="navbar-action">
+          <a href="booking.html" class="btn btn-outline-travel btn-sm">Plan Trip</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero d-flex align-items-center" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <p class="section-kicker mb-3">Fresh journeys, calm planning</p>
+          <h1 class="hero-title mb-4">Travel wider. Plan lighter.</h1>
+          <p class="hero-copy mb-4">Discover handpicked destinations, family-friendly packages, and simple travel planning for weekends, vacations, and dream holidays.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="booking.html" class="btn btn-travel">Get Started</a>
+            <a href="#destinations" class="btn btn-outline-travel">Explore Places</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image-wrap">
+            <img src="images/hero-travel.jpg" class="hero-img" alt="Open travel landscape">
+            <div class="hero-note">
+              <strong>Custom plans</strong>
+              <p class="mb-0 text-muted-custom">Trips shaped around budget, days, people, and destination mood.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-padding" id="destinations">
+    <div class="container">
+      <div class="row align-items-end mb-4">
+        <div class="col-lg-7">
+          <p class="section-kicker">Popular destinations</p>
+          <h2 class="section-title mb-2">Pick a place that feels open and easy.</h2>
+        </div>
+        <div class="col-lg-5">
+          <p class="text-muted-custom mb-0">Scroll through the destination cards and choose a place for your booking request. Each package can be adjusted for travel dates, people, and comfort level.</p>
+        </div>
+      </div>
+      <div class="destination-strip" id="destinationStrip"></div>
+    </div>
+  </section>
+
+  <section class="section-padding pt-0">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="why-card">
+            <div class="why-icon">01</div>
+            <h3>Flexible planning</h3>
+            <p class="text-muted-custom mb-0">Choose your dates, destination, and number of travellers. The trip request stays simple and clear.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="why-card">
+            <div class="why-icon">02</div>
+            <h3>Light itineraries</h3>
+            <p class="text-muted-custom mb-0">Plans are designed with relaxed sightseeing, enough free time, and realistic travel movement.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="why-card">
+            <div class="why-icon">03</div>
+            <h3>Clear guidance</h3>
+            <p class="text-muted-custom mb-0">Get destination ideas, route support, stay suggestions, and booking guidance in one place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding contact-section" id="contact">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <p class="section-kicker">Contact us</p>
+          <h2 class="section-title">Need help choosing a destination?</h2>
+          <p class="text-muted-custom">Send a quick message. This contact form is kept on the homepage as requested and can be connected to backend later.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-box p-4 p-md-5">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" placeholder="Email address" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" placeholder="Tell us where you want to travel" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-travel">Send Message</button>
+                  <div id="contactSuccess" class="success-message">Message noted! This is a frontend demo response.</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+      <div><strong>SkyTrail Travels</strong> — Travel Booking Website Template</div>
+      <div>HTML • CSS • JavaScript • Bootstrap</div>
+    </div>
+  </footer>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/popper.min.js"></script>
+  <script src="vendor/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

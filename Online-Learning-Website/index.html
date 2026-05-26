@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillNest Learning | Online Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-hover-zone" id="topHoverZone"></div>
+
+  <nav class="navbar navbar-expand-lg learning-navbar fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="brand-mark">S</span> SkillNest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="login.html" class="btn btn-light nav-cta">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section" id="home">
+    <div class="hero-grid"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center min-vh-100 py-5 g-5">
+        <div class="col-lg-6 text-white hero-copy" data-animate>
+          <span class="eyebrow">learn smarter from anywhere</span>
+          <h1>Level up your skills without boring lessons.</h1>
+          <p class="hero-text">Short practical courses for students and young adults who want to build real websites, portfolios and career-ready skills.</p>
+          <div class="hero-actions">
+            <a href="#courses" class="btn btn-primary hero-btn">Explore Courses</a>
+            <a href="#categories" class="btn btn-outline-light hero-btn">View Categories</a>
+          </div>
+        </div>
+        <div class="col-lg-6" data-animate>
+          <div class="hero-image-card">
+            <img src="images/hero-students.jpg" alt="Students learning online">
+            <div class="hero-floating-card hero-float-one">
+              <strong>6+</strong>
+              <span>Project courses</span>
+            </div>
+            <div class="hero-floating-card hero-float-two">
+              <strong>4.8★</strong>
+              <span>Student rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="category-section section-padding" id="categories" data-animate>
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <span>Course Categories</span>
+          <h2>Choose your learning path</h2>
+          <p>Short, focused categories designed for students who want useful practical skills.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="category-card">
+              <img src="images/category-dev.jpg" alt="Web development">
+              <div class="category-content">
+                <h5>Web Development</h5>
+                <p>HTML, CSS, Bootstrap and JavaScript basics.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="category-card">
+              <img src="images/category-cloud.jpg" alt="Cloud learning">
+              <div class="category-content">
+                <h5>Cloud Basics</h5>
+                <p>Cloud concepts, hosting and deployment fundamentals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="category-card">
+              <img src="images/category-ux.jpg" alt="UI UX design">
+              <div class="category-content">
+                <h5>UI/UX Design</h5>
+                <p>Design systems, layouts, colors and usability.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="category-card">
+              <img src="images/category-business.jpg" alt="Career skills">
+              <div class="category-content">
+                <h5>Career Skills</h5>
+                <p>Resume, interviews, communication and workplace basics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses-section section-padding" id="courses" data-animate>
+      <div class="container">
+        <div class="section-title text-center mb-4">
+          <span>Popular Courses</span>
+          <h2>Creative course cards</h2>
+          <p>Cards use a clean dark learning theme with soft depth, readable spacing and responsive structure.</p>
+        </div>
+        <div class="course-filter-bar d-flex flex-wrap gap-2 justify-content-center mb-5">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="development">Development</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="career">Career</button>
+        </div>
+        <div class="row g-4" id="courseGrid">
+          <div class="col-md-6 col-xl-4 course-item" data-category="development">
+            <article data-course-url="course-details/frontend-bootstrap.html" class="creative-course-card">
+              <div class="card-visual" style="background-image:url('images/course-web.jpg')">
+                <span class="badge-card">Bestseller</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Development</span>
+                <h3>Frontend Web Design with Bootstrap</h3>
+                <p>Build responsive pages using HTML, CSS, Bootstrap grid and reusable sections.</p>
+                <div class="rating-row"><span>4.8</span><span class="stars">★★★★★</span><span>(126 reviews)</span></div>
+                <div class="card-bottom"><strong>₹799</strong><a class="enroll-btn" href="course-details/frontend-bootstrap.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4 course-item" data-category="design">
+            <article data-course-url="course-details/visual-design-projects.html" class="creative-course-card">
+              <div class="card-visual" style="background-image:url('images/course-design.jpg')">
+                <span class="badge-card">New</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Design</span>
+                <h3>Visual Design for Student Projects</h3>
+                <p>Learn color, spacing, typography and card layouts for clean websites.</p>
+                <div class="rating-row"><span>4.7</span><span class="stars">★★★★★</span><span>(84 reviews)</span></div>
+                <div class="card-bottom"><strong>₹699</strong><a class="enroll-btn" href="course-details/visual-design-projects.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4 course-item" data-category="development">
+            <article data-course-url="course-details/javascript-dom-projects.html" class="creative-course-card">
+              <div class="card-visual" style="background-image:url('images/course-data.jpg')">
+                <span class="badge-card">Popular</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Development</span>
+                <h3>JavaScript DOM Projects</h3>
+                <p>Create filters, forms, counters and simple dynamic UI components.</p>
+                <div class="rating-row"><span>4.9</span><span class="stars">★★★★★</span><span>(152 reviews)</span></div>
+                <div class="card-bottom"><strong>₹899</strong><a class="enroll-btn" href="course-details/javascript-dom-projects.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4 course-item" data-category="career">
+            <article data-course-url="course-details/portfolio-building-basics.html" class="creative-course-card course-card-blue">
+              <div class="card-visual" style="background-image:url('images/hero-students.jpg')">
+                <span class="badge-card">Guided</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Career</span>
+                <h3>Portfolio Building Basics</h3>
+                <p>Turn class assignments into polished portfolio projects with clear sections.</p>
+                <div class="rating-row"><span>4.6</span><span class="stars">★★★★☆</span><span>(73 reviews)</span></div>
+                <div class="card-bottom"><strong>₹599</strong><a class="enroll-btn" href="course-details/portfolio-building-basics.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4 course-item" data-category="design">
+            <article data-course-url="course-details/landing-page-ui-practice.html" class="creative-course-card course-card-blue">
+              <div class="card-visual" style="background-image:url('images/category-ux.jpg')">
+                <span class="badge-card">Workshop</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Design</span>
+                <h3>Landing Page UI Practice</h3>
+                <p>Design hero sections, buttons, cards and responsive blocks with confidence.</p>
+                <div class="rating-row"><span>4.5</span><span class="stars">★★★★☆</span><span>(65 reviews)</span></div>
+                <div class="card-bottom"><strong>₹749</strong><a class="enroll-btn" href="course-details/landing-page-ui-practice.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4 course-item" data-category="career">
+            <article data-course-url="course-details/interview-ready-communication.html" class="creative-course-card course-card-blue">
+              <div class="card-visual" style="background-image:url('images/category-business.jpg')">
+                <span class="badge-card">Beginner</span>
+              </div>
+              <div class="course-info">
+                <span class="course-tag">Career</span>
+                <h3>Interview Ready Communication</h3>
+                <p>Practice short introductions, project explanation and confident answers.</p>
+                <div class="rating-row"><span>4.8</span><span class="stars">★★★★★</span><span>(91 reviews)</span></div>
+                <div class="card-bottom"><strong>₹499</strong><a class="enroll-btn" href="course-details/interview-ready-communication.html">Enroll Now</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section section-padding" id="testimonials" data-animate>
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <span>Student Stories</span>
+          <h2>Learners are building better projects</h2>
+          <p>Simple courses, useful practice and clean guidance for portfolio-ready work.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p>The Bootstrap course helped me finally understand layout spacing and responsive cards.</p>
+              <strong>Arjun · Web learner</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p>I used the portfolio lessons to clean up my project pages before sharing them on GitHub.</p>
+              <strong>Nisha · Student developer</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p>The lessons are short and practical, so they feel easier to complete after college.</p>
+              <strong>Rahul · Beginner designer</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-review-section section-padding" id="contact" data-animate>
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-5">
+            <div class="contact-info-panel h-100">
+              <span class="eyebrow">contact us</span>
+              <h2>Have a question or want to leave a review?</h2>
+              <p>Send your feedback, course doubt or suggestion. This is a frontend demo form with simple validation.</p>
+              <div class="contact-mini-list">
+                <span>📧 support@skillnest.demo</span>
+                <span>📞 +91 98765 43210</span>
+                <span>📍 Hyderabad, India</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form class="review-form" data-review-form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="reviewName">Name</label>
+                  <input type="text" id="reviewName" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="reviewEmail">Email</label>
+                  <input type="email" id="reviewEmail" class="form-control" placeholder="you@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="reviewCourse">Course</label>
+                  <select id="reviewCourse" class="form-select" required>
+                    <option value="">Select course</option>
+                    <option>Frontend Web Design with Bootstrap</option>
+                    <option>Visual Design for Student Projects</option>
+                    <option>JavaScript DOM Projects</option>
+                    <option>Portfolio Building Basics</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="reviewRating">Rating</label>
+                  <select id="reviewRating" class="form-select" required>
+                    <option value="">Select rating</option>
+                    <option>5 - Excellent</option>
+                    <option>4 - Good</option>
+                    <option>3 - Average</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="reviewMessage">Message</label>
+                  <textarea id="reviewMessage" class="form-control" rows="4" placeholder="Write your review or question" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary px-4 py-3 fw-bold" type="submit">Submit Message</button>
+                  <div class="form-alert d-none" id="reviewAlert">Thank you! Your message was submitted in this demo.</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <p class="mb-0">© 2026 SkillNest Learning</p>
+      <p class="mb-0">Online learning website template</p>
+    </div>
+  </footer>
+
+  <script src="vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

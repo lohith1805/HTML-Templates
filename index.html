@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My HTML CSS JS Bootstrap Templates</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #101828;
+      --muted: #667085;
+      --light: #f8fafc;
+      --card-border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #eef4ff 0%, #ffffff 45%, #f8fafc 100%);
+      color: var(--dark);
+    }
+
+    .site-header {
+      min-height: 56vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.14), transparent 35%);
+    }
+
+    .floating-shape {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 30px;
+      background: rgba(37, 99, 235, 0.08);
+      transform: rotate(18deg);
+      right: -70px;
+      top: 90px;
+    }
+
+    .floating-shape.two {
+      width: 150px;
+      height: 150px;
+      left: -45px;
+      top: 190px;
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-top: 22px;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 680px;
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn-main {
+      background: var(--primary);
+      color: #fff;
+      border: 0;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .btn-main:hover {
+      background: #1d4ed8;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-main {
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid var(--card-border);
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .btn-outline-main:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 12px auto 0;
+      line-height: 1.7;
+    }
+
+    .template-card {
+      background: #fff;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      height: 100%;
+      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.06);
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .template-card::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      right: -35px;
+      top: -35px;
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .template-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.10);
+      border-color: rgba(37, 99, 235, 0.25);
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 1.55rem;
+      margin-bottom: 18px;
+    }
+
+    .template-card h3 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .template-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      min-height: 82px;
+      margin-bottom: 22px;
+    }
+
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .open-link:hover {
+      color: #1d4ed8;
+    }
+
+    .info-strip {
+      background: #0f172a;
+      color: #fff;
+      border-radius: 22px;
+      padding: 34px;
+      margin-top: 36px;
+    }
+
+    .info-strip span {
+      color: #93c5fd;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--card-border);
+      color: var(--muted);
+      text-align: center;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        min-height: auto;
+        padding: 70px 0;
+      }
+
+      .template-card p {
+        min-height: auto;
+      }
+
+      .info-strip {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="floating-shape"></div>
+    <div class="floating-shape two"></div>
+
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-9">
+          <div class="badge-soft">
+            <i class="bi bi-code-square"></i>
+            HTML • CSS • JavaScript • Bootstrap
+          </div>
+
+          <h1 class="hero-title">
+            My 10 Responsive Website Templates
+          </h1>
+
+          <p class="hero-text">
+            A single launcher page for all assignment templates. Each project is organized in its own folder and can be opened directly from here.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#templates" class="btn-main">View Templates</a>
+            <a href="Ecommerce-Store/index.html" class="btn-outline-main">Open E-Commerce</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="templates" class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Template Collection</h2>
+          <p class="section-subtitle">
+            Click any card to open the respective template. These links use your exact folder names, so keep this file in the same main folder.
+          </p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-speedometer2"></i></div>
+              <h3>Admin Dashboard</h3>
+              <p>Sidebar, navbar, dashboard cards, charts and tables for admin analytics.</p>
+              <a class="open-link" href="Admin-Dashboard/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-bag-check"></i></div>
+              <h3>E-Commerce Store</h3>
+              <p>Furniture store homepage with product cards, shopping UI and product sections.</p>
+              <a class="open-link" href="Ecommerce-Store/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-calendar-event"></i></div>
+              <h3>Event Management</h3>
+              <p>Landing page with event cards, filters and animated event statistics.</p>
+              <a class="open-link" href="Event-Management-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-basket2"></i></div>
+              <h3>Food Delivery</h3>
+              <p>Fast-food restaurant homepage with spicy menu cards and category filters.</p>
+              <a class="open-link" href="Food-Delivery-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-hospital"></i></div>
+              <h3>Hospital Management</h3>
+              <p>Medical homepage with appointment button, doctors, stats and booking page.</p>
+              <a class="open-link" href="Hospital-Management-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-briefcase"></i></div>
+              <h3>Job Portal</h3>
+              <p>Job search homepage with compact job cards, apply buttons and job links.</p>
+              <a class="open-link" href="Job-Portal-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-mortarboard"></i></div>
+              <h3>Online Learning</h3>
+              <p>Course website with creative course cards, filters and responsive navigation.</p>
+              <a class="open-link" href="Online-Learning-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-person-workspace"></i></div>
+              <h3>Portfolio Website</h3>
+              <p>Software portfolio with projects, skills section, clean theme and dark mode.</p>
+              <a class="open-link" href="Portfolio-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-buildings"></i></div>
+              <h3>Real Estate</h3>
+              <p>Property website with search filters, sale/rent sections and property details.</p>
+              <a class="open-link" href="Real-Estate-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="template-card">
+              <div class="icon-box"><i class="bi bi-airplane"></i></div>
+              <h3>Travel Booking</h3>
+              <p>Travel homepage with destination cards, contact section and booking form.</p>
+              <a class="open-link" href="Travel-Booking-Website/index.html">Open template <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="info-strip">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold mb-2">Ready for GitHub Pages</h3>
+              <p class="mb-0">
+                Upload this main folder to GitHub, then enable Pages from <span>Settings → Pages → main branch → root</span>.
+              </p>
+            </div>
+            <div class="col-md-4 text-md-end">
+              <a href="#templates" class="btn btn-light fw-bold px-4 py-2">Back to Templates</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="mb-0">Frontend Template Assignment • Built with HTML, CSS, JavaScript and Bootstrap</p>
+    </div>
+  </footer>
+
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>

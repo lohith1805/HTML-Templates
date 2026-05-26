@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventora - Event Management Website</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800|Roboto:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#home">Event<span>ora</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item ms-lg-3"><a class="ticket-btn" href="#events">Book Tickets</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content reveal visible">
+        <span class="event-pill">Corporate Events • Tech Meets • Workshops • Live Shows</span>
+        <h1>We bring memorable events to life.</h1>
+        <div class="hero-meta">Premium event planning and ticket booking for Hyderabad, Bengaluru, Pune and more.</div>
+        <p>Discover upcoming events, explore completed showcases, book tickets and plan complete experiences with one clean event management platform.</p>
+        <div class="hero-actions d-flex gap-3 flex-wrap">
+          <a class="btn btn-event btn-lg" href="#events">Explore Events</a>
+          <a class="btn btn-outline-event btn-lg" href="gallery.html">View Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip reveal">
+    <div class="container">
+      <div class="stats-card">
+        <div class="row text-center">
+          <div class="col-6 col-md-3 stat-box"><div class="stat-number" data-count="500" data-suffix="+">0</div><div class="stat-label">Event Partners</div></div>
+          <div class="col-6 col-md-3 stat-box"><div class="stat-number" data-count="20000" data-suffix="+">0</div><div class="stat-label">Annual Bookings</div></div>
+          <div class="col-6 col-md-3 stat-box"><div class="stat-number" data-count="1000" data-suffix="+">0</div><div class="stat-label">Partner Venues</div></div>
+          <div class="col-6 col-md-3 stat-box"><div class="stat-number" data-count="1500000" data-suffix="+">0</div><div class="stat-label">Monthly Visitors</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="section section-light">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Event Listings</div>
+        <h2>This Weekend, Near Future and Recently Completed Events</h2>
+        <p>Use the filters to find events by timing or audience. Each event has a separate information page and a dedicated ticket payment page.</p>
+      </div>
+      <div class="filter-tabs reveal">
+        <button class="filter-btn active" data-filter-type="status" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter-type="status" data-filter="weekend">This Weekend Events</button>
+        <button class="filter-btn" data-filter-type="status" data-filter="future">Near Future Events</button>
+        <button class="filter-btn" data-filter-type="status" data-filter="completed">Recently Completed</button>
+      </div>
+      <div class="filter-tabs audience-tabs reveal">
+        <button class="audience-btn active" data-audience="all">All Audiences</button>
+        <button class="audience-btn" data-audience="developers">For Developers</button>
+        <button class="audience-btn" data-audience="artists">For Artists</button>
+        <button class="audience-btn" data-audience="art">For Art</button>
+        <button class="audience-btn" data-audience="business">For Business</button>
+      </div>
+      <div class="row g-4" id="eventGrid">
+        
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="weekend" data-audience="developers">
+          <article class="event-card current">
+            <div class="event-image" style="background-image:url('assets/images/hero-1.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">This Weekend Event</span><span class="event-price">₹499</span></div>
+              <h3 class="event-title">Startup Networking Night</h3>
+              <p class="event-desc">A focused evening for founders, investors and product builders to exchange ideas, pitch early concepts and discover collaboration opportunities.</p>
+              <div class="event-time">30 May 2026 • 6:00 PM - 9:30 PM</div>
+              <div class="event-place">T-Hub, Hyderabad</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/startup-networking-night.html">More Information</a>
+                <a class="btn btn-outline-dark-event" href="payment.html?event=startup-networking-night">Book Ticket</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="weekend" data-audience="developers">
+          <article class="event-card current">
+            <div class="event-image" style="background-image:url('assets/images/hero-2.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">This Weekend Event</span><span class="event-price">₹299</span></div>
+              <h3 class="event-title">Campus Tech Expo</h3>
+              <p class="event-desc">A student-friendly technology expo with project demos, coding mini events, cloud talks and internship networking booths.</p>
+              <div class="event-time">31 May 2026 • 10:00 AM - 5:00 PM</div>
+              <div class="event-place">Convention Center, Bengaluru</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/campus-tech-expo.html">More Information</a>
+                <a class="btn btn-outline-dark-event" href="payment.html?event=campus-tech-expo">Book Ticket</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="future" data-audience="business">
+          <article class="event-card future">
+            <div class="event-image" style="background-image:url('assets/images/hero-3.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">Near Future Event</span><span class="event-price">₹799</span></div>
+              <h3 class="event-title">Product Launch Summit</h3>
+              <p class="event-desc">A practical summit for marketing teams, founders and product managers planning product launches, demos and media announcements.</p>
+              <div class="event-time">08 Jun 2026 • 11:00 AM - 3:00 PM</div>
+              <div class="event-place">HICC, Hyderabad</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/product-launch-summit.html">More Information</a>
+                <a class="btn btn-outline-dark-event" href="payment.html?event=product-launch-summit">Book Ticket</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="future" data-audience="business">
+          <article class="event-card future">
+            <div class="event-image" style="background-image:url('assets/images/hero-1.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">Near Future Event</span><span class="event-price">₹999</span></div>
+              <h3 class="event-title">Corporate Leadership Meet</h3>
+              <p class="event-desc">A leadership-focused event covering team culture, operations, planning and executive communication for growing organizations.</p>
+              <div class="event-time">18 Jun 2026 • 9:30 AM - 4:30 PM</div>
+              <div class="event-place">Novotel Hall, Pune</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/corporate-leadership-meet.html">More Information</a>
+                <a class="btn btn-outline-dark-event" href="payment.html?event=corporate-leadership-meet">Book Ticket</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="completed" data-audience="artists">
+          <article class="event-card past">
+            <div class="event-image" style="background-image:url('assets/images/hero-2.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">Recently Completed Event</span><span class="event-price">₹399</span></div>
+              <h3 class="event-title">Design Thinking Workshop</h3>
+              <p class="event-desc">A hands-on creativity workshop on user research, idea sketching, low-fidelity prototypes and practical design presentation.</p>
+              <div class="event-time">10 Apr 2026 • 2:00 PM - 6:00 PM</div>
+              <div class="event-place">CoWorks Studio, Chennai</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/design-thinking-workshop.html">More Information</a>
+                <span class="btn btn-disabled-event">Booking Closed</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4 event-col reveal" data-status="completed" data-audience="art">
+          <article class="event-card past">
+            <div class="event-image" style="background-image:url('assets/images/hero-3.jpg')"></div>
+            <div class="event-body">
+              <div class="event-label-row"><span class="event-status">Recently Completed Event</span><span class="event-price">₹249</span></div>
+              <h3 class="event-title">Annual Cultural Fest</h3>
+              <p class="event-desc">An evening of live performances, art stalls, food counters, music sets and community celebration for students and families.</p>
+              <div class="event-time">28 Mar 2026 • 5:00 PM - 10:00 PM</div>
+              <div class="event-place">Open Arena, Vijayawada</div>
+              <div class="event-actions">
+                <a class="btn btn-event" href="event-pages/annual-cultural-fest.html">More Information</a>
+                <span class="btn btn-disabled-event">Booking Closed</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="image-panel about-image"></div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="section-heading text-lg-start text-center mb-3">
+            <div class="eyebrow">About Eventora</div>
+            <h2>We are an event management team built for smooth execution.</h2>
+            <p>We plan and manage events from the first idea to the final guest experience. Our work covers venue selection, supplier coordination, registration flow, ticketing support, media coverage and post-event reporting.</p>
+          </div>
+          <div class="about-grid">
+            <div><strong>Planning</strong><span>Theme, budget, timeline and guest flow.</span></div>
+            <div><strong>Suppliers</strong><span>Photographers, decorators, speakers, hosts and crew.</span></div>
+            <div><strong>Venues</strong><span>Banquet halls, auditoriums, resorts and corporate spaces.</span></div>
+            <div><strong>Support</strong><span>Helpdesk, check-in, ticketing and feedback handling.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-5">
+        <div class="col-md-4 reveal"><div class="service-card"><h3>What We Offer</h3><p>Complete event planning, digital ticketing, venue coordination, stage management, guest communication and event-day operations.</p></div></div>
+        <div class="col-md-4 reveal"><div class="service-card"><h3>Who We Help</h3><p>Companies, colleges, communities, artists, developers, startups and creators who need a professional event setup.</p></div></div>
+        <div class="col-md-4 reveal"><div class="service-card"><h3>Why Choose Us</h3><p>Clear schedules, responsive coordination, transparent pricing and a polished booking flow for attendees.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Latest Media</div>
+        <h2>Moments from our events</h2>
+        <p>Explore highlights from tech conferences, creative workshops, cultural festivals and corporate meets.</p>
+      </div>
+      <div class="row g-4 media-preview">
+        <div class="col-md-3 col-6 reveal"><a href="gallery.html" class="media-card" style="background-image:url('assets/images/hero-1.jpg')"><span>Conference</span></a></div>
+        <div class="col-md-3 col-6 reveal"><a href="gallery.html" class="media-card" style="background-image:url('assets/images/hero-2.jpg')"><span>Workshop</span></a></div>
+        <div class="col-md-3 col-6 reveal"><a href="gallery.html" class="media-card" style="background-image:url('assets/images/hero-3.jpg')"><span>Celebration</span></a></div>
+        <div class="col-md-3 col-6 reveal"><a href="gallery.html" class="media-card" style="background-image:url('assets/images/hero-1.jpg')"><span>Networking</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="row g-4 text-start">
+        <div class="col-lg-4">
+          <h4>Event<span>ora</span></h4>
+          <p>Event planning, ticket booking and event-day coordination for modern teams and communities.</p>
+          <div class="socials">● ● ● ●</div>
+        </div>
+        <div class="col-sm-6 col-lg-2"><h5>Venues</h5><a>Hyderabad</a><a>Bengaluru</a><a>Pune</a><a>Chennai</a></div>
+        <div class="col-sm-6 col-lg-2"><h5>Services</h5><a>Corporate Meets</a><a>Workshops</a><a>Tech Expos</a><a>Concerts</a></div>
+        <div class="col-sm-6 col-lg-2"><h5>Quick Links</h5><a href="#events">Events</a><a href="#about">About</a><a href="gallery.html">Gallery</a><a href="payment.html">Payment</a></div>
+        <div class="col-sm-6 col-lg-2"><h5>Contact Info</h5><p>+91 98765 43210<br>hello@eventora.in<br>HITEC City, Hyderabad</p></div>
+      </div>
+      <div class="footer-bottom">Made for frontend practice using HTML, CSS, JavaScript and Bootstrap.</div>
+    </div>
+  </footer>
+
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+
+<!-- Template Auth Popup Start -->
+<style>
+  .template-auth-modal,
+  .template-auth-modal * {
+    box-sizing: border-box;
+  }
+  .template-auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+  }
+  .template-auth-modal.show {
+    display: flex;
+  }
+  .template-auth-card {
+    width: min(440px, 94vw);
+    border-radius: 22px;
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    color: #141414;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    animation: templateAuthPop 0.35s ease both;
+  }
+  @keyframes templateAuthPop {
+    from { opacity: 0; transform: translateY(22px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .template-auth-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .template-auth-title {
+    margin: 0 42px 6px 0;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .template-auth-subtitle {
+    margin: 0 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .template-auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: #f3f4f6;
+  }
+  .template-auth-tab {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: transparent;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .template-auth-tab.active {
+    background: #111827;
+    color: #fff;
+  }
+  .template-auth-form {
+    display: grid;
+    gap: 12px;
+  }
+  .template-auth-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #333;
+  }
+  .template-auth-form input {
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+  }
+  .template-auth-form input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+  }
+  .template-auth-submit {
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  .template-auth-note {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .template-user-profile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(127,127,127,0.25);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .template-user-avatar {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    flex: 0 0 auto;
+  }
+  .template-user-profile.floating {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+  .template-user-profile.floating .template-user-avatar {
+    background: rgba(255,255,255,0.16);
+  }
+  @media (max-width: 640px) {
+    .template-auth-card { padding: 22px 18px; }
+    .template-auth-title { font-size: 1.25rem; }
+    .template-user-name { display: none; }
+    .template-user-profile { padding: 6px; margin-left: 8px; }
+  }
+</style>
+<script>
+(function () {
+  const pagePath = window.location.pathname;
+  const firstFolder = pagePath.split('/').filter(Boolean)[0] || 'template';
+  const authKey = 'templateAuthUser_' + firstFolder;
+  const dismissedKey = 'templateAuthDismissed_' + firstFolder;
+
+  function getUser() {
+    try { return JSON.parse(localStorage.getItem(authKey) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(authKey, JSON.stringify(user));
+    sessionStorage.setItem(dismissedKey, 'yes');
+  }
+
+  function addProfile(user) {
+    if (!user || document.querySelector('.template-user-profile')) return;
+    const profile = document.createElement('div');
+    profile.className = 'template-user-profile';
+    profile.innerHTML = '<span class="template-user-avatar" aria-hidden="true">👤</span><span class="template-user-name"></span>';
+    profile.querySelector('.template-user-name').textContent = user.name || 'User';
+
+    const navTargets = [
+      document.querySelector('header nav'),
+      document.querySelector('.navbar nav'),
+      document.querySelector('.nav-links'),
+      document.querySelector('.navbar-collapse'),
+      document.querySelector('.navbar'),
+      document.querySelector('header')
+    ].filter(Boolean);
+
+    const target = navTargets[0];
+    if (target) {
+      target.appendChild(profile);
+    } else {
+      profile.classList.add('floating');
+      document.body.appendChild(profile);
+    }
+  }
+
+  function showModal() {
+    if (document.querySelector('.template-auth-modal')) return;
+    const modal = document.createElement('div');
+    modal.className = 'template-auth-modal';
+    modal.innerHTML = `
+      <div class="template-auth-card" role="dialog" aria-modal="true" aria-labelledby="templateAuthTitle">
+        <button class="template-auth-close" type="button" aria-label="Close login popup">×</button>
+        <h2 class="template-auth-title" id="templateAuthTitle">Welcome back</h2>
+        <p class="template-auth-subtitle">Login or register to continue with a personalized profile on this template.</p>
+        <div class="template-auth-tabs" role="tablist">
+          <button class="template-auth-tab active" type="button" data-auth-mode="login">Login</button>
+          <button class="template-auth-tab" type="button" data-auth-mode="register">Register</button>
+        </div>
+        <form class="template-auth-form">
+          <label class="template-name-field">Name
+            <input type="text" name="name" placeholder="Your name" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="Enter password" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="template-auth-submit" type="submit">Login</button>
+        </form>
+        <p class="template-auth-note">Demo login only. No real account is created.</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const tabs = modal.querySelectorAll('.template-auth-tab');
+    const nameField = modal.querySelector('.template-name-field');
+    const submit = modal.querySelector('.template-auth-submit');
+    let mode = 'login';
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authMode === mode));
+      nameField.style.display = mode === 'register' ? 'grid' : 'none';
+      submit.textContent = mode === 'register' ? 'Create Account' : 'Login';
+      modal.querySelector('.template-auth-title').textContent = mode === 'register' ? 'Create your account' : 'Welcome back';
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.authMode)));
+    modal.querySelector('.template-auth-close').addEventListener('click', () => {
+      sessionStorage.setItem(dismissedKey, 'yes');
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sessionStorage.setItem(dismissedKey, 'yes');
+        modal.classList.remove('show');
+      }
+    });
+    modal.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get('email') || '').trim();
+      const fallbackName = email ? email.split('@')[0] : 'User';
+      const name = mode === 'register' ? String(formData.get('name') || '').trim() || fallbackName : fallbackName;
+      saveUser({ name, email, mode });
+      modal.classList.remove('show');
+      addProfile({ name, email });
+    });
+
+    setMode('login');
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const user = getUser();
+    if (user) {
+      addProfile(user);
+    } else if (!sessionStorage.getItem(dismissedKey)) {
+      setTimeout(showModal, 500);
+    }
+  });
+})();
+</script>
+<!-- Template Auth Popup End -->
+
+</body>
+</html>
