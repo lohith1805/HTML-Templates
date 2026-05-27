@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Building Basics | SkillNest Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="course-details-page">
+  <div class="top-hover-zone" id="topHoverZone"></div>
+
+  <nav class="navbar navbar-expand-lg learning-navbar fixed-top nav-small" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><span class="brand-mark">S</span> SkillNest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../index.html#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#categories">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+        <a href="../login.html" class="btn btn-light nav-cta">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="section-padding">
+    <div class="container">
+      <section class="course-hero-panel mb-4">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="eyebrow">Career course</span>
+            <h1>Portfolio Building Basics</h1>
+            <p class="mt-3">Turn class assignments into polished portfolio projects with clear sections.</p>
+            <div class="course-meta-pills">
+              <span>Beginner</span>
+              <span>4 Weeks</span>
+              <span>10 Lessons</span>
+              <span>English</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="course-preview" style="background-image: linear-gradient(135deg, rgba(139,92,246,.36), rgba(20,184,166,.24)), url('../images/hero-students.jpg');"><span>Guided · 4.6 ★</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <section class="details-panel mb-4">
+            <h2>About this course</h2>
+            <p>This course shows how to present your skills, projects and contact details in a simple portfolio that looks serious and easy to understand.</p>
+          </section>
+
+          <section class="details-panel mb-4">
+            <h2>What you'll learn</h2>
+            <ul class="mb-0">
+              <li>Plan a portfolio structure with hero, about, skills and projects.</li>
+              <li>Write short project descriptions that sound clear.</li>
+              <li>Use cards and images without making the page crowded.</li>
+              <li>Prepare your portfolio for sharing with recruiters or instructors.</li>
+            </ul>
+          </section>
+
+          <section class="details-panel">
+            <h2 class="mb-3">Course curriculum</h2>
+            <div class="lesson-row"><strong>01. Portfolio planning</strong><span>25 min</span></div>
+            <div class="lesson-row"><strong>02. Hero and about sections</strong><span>30 min</span></div>
+            <div class="lesson-row"><strong>03. Project card writing</strong><span>35 min</span></div>
+            <div class="lesson-row"><strong>04. Contact section and links</strong><span>40 min</span></div>
+            <div class="lesson-row"><strong>05. Final portfolio review</strong><span>45 min</span></div>
+          </section>
+
+          <section class="details-panel course-review-panel mt-4">
+            <h2>Have a review?</h2>
+            <p>Share what you liked about this course or what should be improved. This is a frontend demo review form.</p>
+            <form class="review-form" data-review-form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Rating</label>
+                  <select class="form-select" required>
+                    <option value="">Select rating</option>
+                    <option>5 - Excellent</option>
+                    <option>4 - Good</option>
+                    <option>3 - Average</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label>Review</label>
+                  <textarea class="form-control" rows="4" placeholder="Write your review" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary fw-bold px-4" type="submit">Submit Review</button>
+                  <div class="form-alert d-none" id="reviewAlert">Thank you! Your review was submitted in this demo.</div>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div class="col-lg-4">
+          <aside class="sidebar-panel">
+            <h3>Course info</h3>
+            <ul class="mt-3">
+              <li><span>Level</span><strong>Beginner</strong></li>
+              <li><span>Length</span><strong>4 Weeks</strong></li>
+              <li><span>Effort</span><strong>5 - 6 hrs/week</strong></li>
+              <li><span>Subject</span><strong>Portfolio</strong></li>
+              <li><span>Language</span><strong>English</strong></li>
+              <li><span>Certificate</span><strong>Included</strong></li>
+            </ul>
+            <div class="price-box">
+              <span class="text-secondary">Course price</span>
+              <div class="price">₹599</div>
+              <p class="mb-0 text-secondary">One-time access with guided lessons and practice files.</p>
+            </div>
+            <a href="../login.html" class="btn btn-primary w-100 py-3 fw-bold">Enroll Now</a>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <p class="mb-0">© 2026 SkillNest Learning</p>
+      <p class="mb-0">Course details page template</p>
+    </div>
+  </footer>
+
+  <script src="../vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
