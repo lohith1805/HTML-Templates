@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - CareerHub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background: #1a1a1a;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0066ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-signin, .btn-signup {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-signin {
+            background: transparent;
+            color: #0066ff;
+            border: 1px solid #0066ff;
+        }
+
+        .btn-signin:hover {
+            background: #0066ff;
+            color: white;
+        }
+
+        .btn-signup {
+            background: #0066ff;
+            color: white;
+        }
+
+        .btn-signup:hover {
+            background: #0052cc;
+        }
+
+        .saved-badge {
+            background: #0066ff;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* ===== JOB HEADER ===== */
+        .job-header {
+            background: #252525;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .job-header-left {
+            flex: 1;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0066ff, #0052cc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .job-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info {
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #bbb;
+        }
+
+        .meta-badge {
+            background: rgba(0, 102, 255, 0.1);
+            color: #0066ff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .job-salary {
+            color: #0066ff;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-apply {
+            background: #0066ff;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-apply:hover {
+            background: #0052cc;
+        }
+
+        .btn-save {
+            background: transparent;
+            border: 1px solid #0066ff;
+            color: #0066ff;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-save:hover {
+            background: #0066ff;
+            color: white;
+        }
+
+        .btn-save.saved {
+            background: #ffd700;
+            border-color: #ffd700;
+            color: black;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .section {
+            background: #252525;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid #0066ff;
+            padding-bottom: 1rem;
+        }
+
+        .section h3 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #0066ff;
+        }
+
+        .section h3:first-child {
+            margin-top: 0;
+        }
+
+        .section p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            margin-left: 1.5rem;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .section li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* ===== REVIEW SECTION ===== */
+        .review {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #0066ff;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .review-rating {
+            color: #ffd700;
+        }
+
+        .review-role {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar-card {
+            background: #252525;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #0066ff;
+        }
+
+        .sidebar-card ul {
+            list-style: none;
+        }
+
+        .sidebar-card li {
+            padding: 0.6rem 0;
+            color: #bbb;
+            border-bottom: 1px solid #333;
+        }
+
+        .sidebar-card li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-card strong {
+            color: #fff;
+        }
+
+        /* ===== RATING ===== */
+        .company-rating {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-score {
+            font-size: 3rem;
+            color: #0066ff;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-count {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .action-buttons {
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-apply, .btn-save {
+                width: 100%;
+            }
+        }
+
+        .back-btn {
+            color: #0066ff;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #0052cc;
+        }
+    
+
+        .career-user-profile {
+            display: none;
+            align-items: center;
+            gap: 0.55rem;
+            color: #fff;
+            font-weight: 700;
+            background: rgba(0, 102, 255, 0.13);
+            border: 1px solid rgba(0, 102, 255, 0.55);
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            white-space: nowrap;
+        }
+
+        .career-user-profile.show {
+            display: flex;
+        }
+
+        .career-user-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0066ff;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .career-user-name {
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-briefcase"></i>
+            CareerHub
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jobs.html">Find Jobs</a></li>
+            <li>
+                <a href="saved-jobs.html">
+                    <i class="fas fa-bookmark"></i>
+                    Saved Jobs
+                    <span class="saved-badge" id="saved-count">0</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="btn-signin" onclick="window.location.href='auth.html?mode=signin'">Sign In</button>
+            <button class="btn-signup" onclick="window.location.href='auth.html?mode=signup'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <main>
+            <a href="jobs.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Jobs
+            </a>
+
+            <!-- JOB HEADER -->
+            <div class="job-header">
+                <div class="job-header-left">
+                    <div class="company-logo" id="jobLogo">T</div>
+                    <h1 id="jobTitle">Senior Frontend Engineer</h1>
+                    <p class="company-info" id="jobCompany">TechCorp India</p>
+                    <div class="job-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="jobLocation">Bangalore</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="meta-badge" id="jobWorkType">Hybrid</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="postedTime">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="job-salary" id="jobSalary">₹15-25 LPA</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-apply" onclick="applyJob()">Apply Now</button>
+                    <button class="btn-save" id="saveBtn" onclick="toggleSave()">
+                        <i class="fas fa-bookmark"></i> Save
+                    </button>
+                </div>
+            </div>
+
+            <!-- JOB DESCRIPTION -->
+            <div class="section">
+                <h2>Job Description</h2>
+                <p>We are looking for a talented Senior Frontend Engineer to join our growing team. You'll be responsible for developing high-quality, scalable user interfaces and collaborating with designers and backend engineers to create outstanding products.</p>
+
+                <h3>Key Responsibilities</h3>
+                <ul>
+                    <li>Develop and maintain responsive user interfaces using React, Vue, or similar frameworks</li>
+                    <li>Collaborate with product and design teams to translate requirements into elegant solutions</li>
+                    <li>Implement performance optimizations and ensure cross-browser compatibility</li>
+                    <li>Lead code reviews and maintain high code quality standards</li>
+                    <li>Mentor junior developers and contribute to team growth</li>
+                    <li>Stay updated with latest technologies and best practices</li>
+                </ul>
+
+                <h3>Required Qualifications</h3>
+                <ul>
+                    <li>Bachelor's degree in Computer Science or related field</li>
+                    <li>5+ years of professional frontend development experience</li>
+                    <li>Strong proficiency in JavaScript/TypeScript and modern frameworks</li>
+                    <li>Experience with HTML5, CSS3, and responsive design principles</li>
+                    <li>Knowledge of RESTful APIs and state management solutions</li>
+                    <li>Excellent communication and collaboration skills</li>
+                </ul>
+
+                <h3>Preferred Skills</h3>
+                <ul>
+                    <li>Experience with GraphQL and server-side rendering</li>
+                    <li>Knowledge of testing frameworks and testing best practices</li>
+                    <li>Experience with CI/CD pipelines and deployment tools</li>
+                    <li>Familiarity with design tools like Figma</li>
+                </ul>
+            </div>
+
+            <!-- COMPENSATION -->
+            <div class="section">
+                <h2>Compensation & Benefits</h2>
+                <p><strong>Base Salary:</strong> ₹15 LPA - ₹25 LPA</p>
+                <ul>
+                    <li>Performance-based bonus up to 30% of base salary</li>
+                    <li>Comprehensive health insurance for self and family</li>
+                    <li>Career development and upskilling opportunities</li>
+                    <li>Generous leave policy (30 days + paid sick leave)</li>
+                    <li>Flexible work arrangements and remote work options</li>
+                    <li>Educational reimbursement for certifications</li>
+                    <li>Free meals and beverages at office</li>
+                    <li>Gym membership and wellness programs</li>
+                </ul>
+            </div>
+
+            <!-- COMPANY REVIEWS -->
+            <div class="section">
+                <h2>Employee Reviews</h2>
+                <div class="company-rating">
+                    <div class="rating-score" id="overallRating">4.5</div>
+                    <div class="rating-stars">★★★★☆</div>
+                    <div class="rating-count">Based on 342 reviews</div>
+                </div>
+
+                <div id="reviewsContainer">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside>
+            <!-- COMPANY INFO CARD -->
+            <div class="sidebar-card">
+                <h3><i class="fas fa-building"></i> Company Details</h3>
+                <ul>
+                    <li><strong>Founded:</strong> 2010</li>
+                    <li><strong>Employees:</strong> 5000+</li>
+                    <li><strong>Industry:</strong> IT/Technology</li>
+                    <li><strong>Headquarters:</strong> Bangalore</li>
+                    <li><strong>Website:</strong> <a href="#" style="color: #0066ff;">techcorp.com</a></li>
+                </ul>
+            </div>
+
+            <!-- COMPANY DESCRIPTION -->
+            <div class="sidebar-card">
+                <h3>About TechCorp India</h3>
+                <p style="color: #bbb; font-size: 0.9rem;">Leading IT solutions and software development company with expertise in cloud computing, AI, and web technologies. We pride ourselves on creating innovative solutions for global clients.</p>
+            </div>
+
+            <!-- QUICK STATS -->
+            <div class="sidebar-card">
+                <h3><i class="fas fa-chart-bar"></i> Company Ratings</h3>
+                <ul>
+                    <li><strong>Work-Life Balance:</strong> 4.2/5</li>
+                    <li><strong>Compensation:</strong> 4.0/5</li>
+                    <li><strong>Career Growth:</strong> 4.6/5</li>
+                    <li><strong>Management:</strong> 4.3/5</li>
+                    <li><strong>Culture:</strong> 4.5/5</li>
+                </ul>
+            </div>
+
+            <!-- SIMILAR JOBS -->
+            <div class="sidebar-card">
+                <h3><i class="fas fa-briefcase"></i> Similar Jobs</h3>
+                <ul>
+                    <li><a href="job-details.html?id=2" style="color: #0066ff; text-decoration: none;">Full Stack Developer</a></li>
+                    <li><a href="job-details.html?id=7" style="color: #0066ff; text-decoration: none;">Mobile App Developer</a></li>
+                    <li><a href="job-details.html?id=13" style="color: #0066ff; text-decoration: none;">Backend Engineer</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        const jobsData = {
+            1: {
+                title: "Senior Frontend Engineer",
+                company: "TechCorp India",
+                logo: "T",
+                salary: "₹15-25 LPA",
+                location: "Bangalore",
+                workType: "Hybrid",
+                posted: "2 hours ago"
+            },
+            2: {
+                title: "Data Scientist",
+                company: "DataSoft Analytics",
+                logo: "D",
+                salary: "₹12-22 LPA",
+                location: "Remote",
+                workType: "Remote",
+                posted: "1 day ago"
+            },
+            3: {
+                title: "DevOps Engineer",
+                company: "CloudNet Solutions",
+                logo: "C",
+                salary: "₹14-24 LPA",
+                location: "Hyderabad",
+                workType: "On-site",
+                posted: "3 days ago"
+            }
+        };
+
+        const reviews = [
+            {
+                author: "Priya Sharma",
+                role: "Senior Engineer",
+                rating: 5,
+                text: "Great company to work at! Excellent career growth opportunities and supportive management. Highly recommend for anyone looking to advance their tech career."
+            },
+            {
+                author: "Raj Kumar",
+                role: "Full Stack Developer",
+                rating: 4,
+                text: "Good work environment with decent compensation. Work-life balance could be better during project deadlines, but overall a solid place to grow."
+            },
+            {
+                author: "Ananya Gupta",
+                role: "Frontend Engineer",
+                rating: 5,
+                text: "Fantastic team culture and learning opportunities. The company genuinely cares about employee development and well-being. Best decision I made!"
+            },
+            {
+                author: "Aditya Patel",
+                role: "QA Engineer",
+                rating: 4,
+                text: "Decent company with good benefits. The technical challenges are interesting and the team is collaborative. Management could be more transparent sometimes."
+            }
+        ];
+
+        function loadJobDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const jobId = params.get('id') || '1';
+            const job = jobsData[jobId] || jobsData[1];
+
+            document.getElementById('jobTitle').textContent = job.title;
+            document.getElementById('jobCompany').textContent = job.company;
+            document.getElementById('jobSalary').textContent = job.salary;
+            document.getElementById('jobLocation').textContent = job.location;
+            document.getElementById('jobWorkType').textContent = job.workType;
+            document.getElementById('postedTime').textContent = job.posted;
+            document.getElementById('jobLogo').textContent = job.logo;
+
+            loadReviews();
+            updateSavedState();
+            updateSavedCount();
+        }
+
+        function loadReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = reviews.map(review => `
+                <div class="review">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-author">${review.author}</div>
+                            <div class="review-role">${review.role}</div>
+                        </div>
+                        <div class="review-rating">
+                            ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                        </div>
+                    </div>
+                    <div class="review-text">${review.text}</div>
+                </div>
+            `).join('');
+        }
+
+        function applyJob() {
+            window.location.href = 'apply.html';
+        }
+
+        function toggleSave() {
+            const params = new URLSearchParams(window.location.search);
+            const jobId = parseInt(params.get('id') || '1');
+            let saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+            const index = saved.indexOf(jobId);
+
+            if (index > -1) {
+                saved.splice(index, 1);
+            } else {
+                saved.push(jobId);
+            }
+
+            localStorage.setItem('savedJobs', JSON.stringify(saved));
+            updateSavedState();
+            updateSavedCount();
+        }
+
+        function updateSavedState() {
+            const params = new URLSearchParams(window.location.search);
+            const jobId = parseInt(params.get('id') || '1');
+            const saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+            const saveBtn = document.getElementById('saveBtn');
+
+            if (saved.includes(jobId)) {
+                saveBtn.classList.add('saved');
+                saveBtn.textContent = '★ Saved';
+            } else {
+                saveBtn.classList.remove('saved');
+                saveBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save';
+            }
+        }
+
+        function updateSavedCount() {
+            const saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+            document.getElementById('saved-count').textContent = saved.length;
+        }
+
+        loadJobDetails();
+
+
+        function renderCareerUser() {
+            const navButtons = document.querySelector('.nav-buttons');
+            if (!navButtons) return;
+            const user = JSON.parse(localStorage.getItem('careerHubUser') || 'null');
+            if (!user) return;
+
+            const displayName = user.name || user.email || 'User';
+            navButtons.innerHTML = `
+                <div class="career-user-profile show">
+                    <span class="career-user-icon"><i class="fas fa-user"></i></span>
+                    <span class="career-user-name">${displayName}</span>
+                </div>
+            `;
+        }
+
+        renderCareerUser();
+
+    </script>
+</body>
+</html>

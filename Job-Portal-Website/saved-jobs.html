@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Jobs - CareerHub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background: #1a1a1a;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0066ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-signin, .btn-signup {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-signin {
+            background: transparent;
+            color: #0066ff;
+            border: 1px solid #0066ff;
+        }
+
+        .btn-signin:hover {
+            background: #0066ff;
+            color: white;
+        }
+
+        .btn-signup {
+            background: #0066ff;
+            color: white;
+        }
+
+        .btn-signup:hover {
+            background: #0052cc;
+        }
+
+        .saved-badge {
+            background: #0066ff;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #aaa;
+        }
+
+        /* ===== SAVED JOBS LIST ===== */
+        .job-card {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .job-card:hover {
+            border-color: #0066ff;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .job-card-content {
+            flex: 1;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0066ff, #0052cc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .job-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-name {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .meta-badge {
+            background: rgba(0, 102, 255, 0.1);
+            color: #0066ff;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .job-salary {
+            font-size: 1.1rem;
+            color: #0066ff;
+            font-weight: 600;
+        }
+
+        .job-description {
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .job-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+
+        .btn-view {
+            background: #0066ff;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-view:hover {
+            background: #0052cc;
+        }
+
+        .btn-remove {
+            background: transparent;
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-remove:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #aaa;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #555;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .empty-state h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #bbb;
+        }
+
+        .empty-state p {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-browse {
+            background: #0066ff;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-browse:hover {
+            background: #0052cc;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .job-card {
+                flex-direction: column;
+            }
+
+            .job-actions {
+                flex-direction: row;
+                width: 100%;
+            }
+
+            .btn-view, .btn-remove {
+                flex: 1;
+            }
+        }
+    
+
+        .career-user-profile {
+            display: none;
+            align-items: center;
+            gap: 0.55rem;
+            color: #fff;
+            font-weight: 700;
+            background: rgba(0, 102, 255, 0.13);
+            border: 1px solid rgba(0, 102, 255, 0.55);
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            white-space: nowrap;
+        }
+
+        .career-user-profile.show {
+            display: flex;
+        }
+
+        .career-user-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0066ff;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .career-user-name {
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-briefcase"></i>
+            CareerHub
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jobs.html">Find Jobs</a></li>
+            <li>
+                <a href="saved-jobs.html" style="color: #0066ff;">
+                    <i class="fas fa-bookmark"></i>
+                    Saved Jobs
+                    <span class="saved-badge" id="saved-count">0</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="btn-signin" onclick="window.location.href='auth.html?mode=signin'">Sign In</button>
+            <button class="btn-signup" onclick="window.location.href='auth.html?mode=signup'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Saved Jobs</h1>
+            <p>Your bookmarked job opportunities</p>
+        </div>
+
+        <div id="savedJobsContainer">
+            <!-- Jobs will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const jobsDatabase = {
+            1: {
+                title: "Senior Frontend Engineer",
+                company: "TechCorp India",
+                logo: "T",
+                salary: "₹15-25 LPA",
+                location: "Bangalore",
+                workType: "hybrid",
+                description: "Build responsive UIs with React/Vue. Lead technical initiatives."
+            },
+            2: {
+                title: "Data Scientist",
+                company: "DataSoft Analytics",
+                logo: "D",
+                salary: "₹12-22 LPA",
+                location: "Remote",
+                workType: "remote",
+                description: "Develop ML models, analyze large datasets, provide insights."
+            },
+            3: {
+                title: "DevOps Engineer",
+                company: "CloudNet Solutions",
+                logo: "C",
+                salary: "₹14-24 LPA",
+                location: "Hyderabad",
+                workType: "onsite",
+                description: "Design CI/CD pipelines, manage cloud infrastructure."
+            },
+            4: {
+                title: "Full Stack Developer",
+                company: "FinTech Innovations",
+                logo: "F",
+                salary: "₹13-23 LPA",
+                location: "Pune",
+                workType: "hybrid",
+                description: "Develop with Node.js and React, work with APIs."
+            },
+            5: {
+                title: "UX/UI Designer",
+                company: "UX Design Studio",
+                logo: "U",
+                salary: "₹10-18 LPA",
+                location: "Mumbai",
+                workType: "remote",
+                description: "Create beautiful interfaces, conduct user research."
+            },
+            6: {
+                title: "Product Manager",
+                company: "ProductX Ventures",
+                logo: "P",
+                salary: "₹16-28 LPA",
+                location: "Delhi",
+                workType: "hybrid",
+                description: "Lead product strategy, manage cross-functional teams."
+            },
+            7: {
+                title: "Mobile App Developer",
+                company: "MobileFirst Apps",
+                logo: "M",
+                salary: "₹11-20 LPA",
+                location: "Bangalore",
+                workType: "remote",
+                description: "Develop iOS and Android apps using Flutter."
+            },
+            13: {
+                title: "Backend Engineer",
+                company: "WebScale Systems",
+                logo: "W",
+                salary: "₹14-26 LPA",
+                location: "Bangalore",
+                workType: "hybrid",
+                description: "Build scalable backend systems with microservices."
+            }
+        };
+
+        function displaySavedJobs() {
+            const container = document.getElementById('savedJobsContainer');
+            const saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+
+            if (saved.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-bookmark"></i>
+                        <h2>No saved jobs yet</h2>
+                        <p>Save jobs to view them later and apply when you're ready</p>
+                        <a href="jobs.html" class="btn-browse">Browse Jobs</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = saved.map(jobId => {
+                const job = jobsDatabase[jobId];
+                if (!job) return '';
+
+                return `
+                    <div class="job-card">
+                        <div class="job-card-content">
+                            <div class="company-logo" style="background: linear-gradient(135deg, #0066ff, #0052cc);">${job.logo}</div>
+                            <h3>${job.title}</h3>
+                            <p class="company-name">${job.company}</p>
+                            <div class="job-meta">
+                                <span class="meta-badge"><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                                <span class="meta-badge"><i class="fas fa-briefcase"></i> ${job.workType}</span>
+                            </div>
+                            <div class="job-salary">${job.salary}</div>
+                            <p class="job-description">${job.description}</p>
+                        </div>
+                        <div class="job-actions">
+                            <button class="btn-view" onclick="window.location.href='job-details.html?id=${jobId}'">
+                                View Details
+                            </button>
+                            <button class="btn-remove" onclick="removeSavedJob(${jobId})">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function removeSavedJob(jobId) {
+            let saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+            saved = saved.filter(id => id !== jobId);
+            localStorage.setItem('savedJobs', JSON.stringify(saved));
+            displaySavedJobs();
+            updateSavedCount();
+        }
+
+        function updateSavedCount() {
+            const saved = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+            document.getElementById('saved-count').textContent = saved.length;
+        }
+
+        displaySavedJobs();
+        updateSavedCount();
+
+
+        function renderCareerUser() {
+            const navButtons = document.querySelector('.nav-buttons');
+            if (!navButtons) return;
+            const user = JSON.parse(localStorage.getItem('careerHubUser') || 'null');
+            if (!user) return;
+
+            const displayName = user.name || user.email || 'User';
+            navButtons.innerHTML = `
+                <div class="career-user-profile show">
+                    <span class="career-user-icon"><i class="fas fa-user"></i></span>
+                    <span class="career-user-name">${displayName}</span>
+                </div>
+            `;
+        }
+
+        renderCareerUser();
+
+    </script>
+</body>
+</html>
